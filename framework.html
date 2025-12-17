@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Expense Live Transfer Script | Outbound Model</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    
+    <style>
+        /* ============================================
+           CSS CUSTOM PROPERTIES (THE AUTHORITY THEME)
+           ============================================ */
+        :root {
+            /* Colors - Blue Authority Theme */
+            --color-primary: #0f172a;
+            --color-primary-light: #1e293b;
+            --color-secondary: #2563eb; /* Trust Blue */
+            --color-secondary-dark: #1e40af;
+            --color-secondary-light: #60a5fa;
+            --color-accent: #f59e0b; /* Attention/Warning */
+            
+            /* Backgrounds */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --bg-card: #ffffff;
+            
+            /* Text */
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary: #64748b;
+            
+            /* Borders */
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e1;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-blue: 0 4px 14px 0 rgba(37, 99, 235, 0.3);
+            
+            /* Sizing */
+            --header-height: 80px; /* Increased slightly for bigger logo */
+            --sidebar-width: 280px;
+            --radius-xl: 1rem;
+            
+            --font-sans: 'Inter', sans-serif;
+        }
+        
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 2rem); }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            line-height: 1.6;
+        }
+        
+        .app-container { display: flex; min-height: 100vh; }
+        
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; height: var(--header-height);
+            background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid var(--border-light);
+            z-index: 1000; display: flex; align-items: center; padding: 0 2rem;
+            backdrop-filter: blur(8px); box-shadow: var(--shadow-sm);
+        }
+        
+        .header-content { display: flex; justify-content: space-between; width: 100%; align-items: center; }
+        
+        .logo { display: flex; align-items: center; gap: 1.25rem; }
+        
+        .logo-image { 
+            height: 60px; /* Normal size logo */
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .logo-text { font-weight: 800; font-size: 1.125rem; color: var(--text-primary); letter-spacing: -0.02em; border-left: 2px solid var(--border-medium); padding-left: 1.25rem; }
+        
+        .btn-print {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 600;
+            background: white; border: 1px solid var(--border-light);
+            border-radius: 6px; color: var(--text-secondary); cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-print:hover { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+        /* ============================================
+           SIDEBAR
+           ============================================ */
+        .sidebar {
+            position: fixed; top: var(--header-height); left: 0; bottom: 0;
+            width: var(--sidebar-width); background: white;
+            border-right: 1px solid var(--border-light);
+            overflow-y: auto; z-index: 100;
+        }
+        
+        .nav-section-title {
+            padding: 1.5rem 1.5rem 0.5rem; font-size: 0.65rem; font-weight: 700;
+            text-transform: uppercase; color: var(--text-tertiary); letter-spacing: 0.1em;
+        }
+        
+        .nav-link {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.6rem 1.5rem; color: var(--text-secondary);
+            text-decoration: none; font-weight: 500; border-left: 3px solid transparent;
+            transition: all 0.2s; font-size: 0.9rem;
+        }
+        
+        .nav-link:hover { background: var(--bg-secondary); color: var(--text-primary); }
+        .nav-link.active { 
+            background: rgba(37, 99, 235, 0.08); 
+            color: var(--color-secondary);
+            border-left-color: var(--color-secondary);
+        }
+        
+        /* ============================================
+           MAIN CONTENT
+           ============================================ */
+        .main-content {
+            margin-left: var(--sidebar-width); margin-top: var(--header-height);
+            padding: 3rem; width: 100%; max-width: 1200px;
+        }
+        
+        /* ============================================
+           COMPONENTS
+           ============================================ */
+        .section { margin-bottom: 4rem; scroll-margin-top: 120px; }
+        
+        .section-header {
+            display: flex; align-items: flex-start; gap: 1rem;
+            margin-bottom: 1.5rem; padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-light);
+        }
+        
+        .section-icon {
+            width: 44px; height: 44px; 
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
+            color: white; border-radius: 10px; display: flex; 
+            align-items: center; justify-content: center; font-size: 1.25rem;
+            flex-shrink: 0; box-shadow: var(--shadow-blue);
+        }
+        
+        .section-title { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin: 0; }
+        .section-subtitle { color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.95rem; }
+        
+        /* Critical Reality Box */
+        .critical-box {
+            background: white; border-radius: var(--radius-xl);
+            padding: 2rem; border: 1px solid var(--border-medium);
+            margin-bottom: 3rem; position: relative; overflow: hidden;
+            box-shadow: var(--shadow-md); border-top: 4px solid var(--color-accent);
+        }
+        
+        .critical-box h2 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem; }
+        .critical-box p { color: var(--text-secondary); margin-bottom: 1rem; }
+        
+        .concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .concept-card { background: var(--bg-tertiary); padding: 1rem; border-radius: 8px; }
+        .concept-title { font-weight: 700; font-size: 0.85rem; color: var(--color-secondary); margin-bottom: 0.5rem; text-transform: uppercase; }
+        .concept-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
+        
+        /* Script Cards */
+        .script-card {
+            background: white; border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border-light);
+            margin-bottom: 1.5rem; overflow: hidden;
+        }
+        
+        .script-header {
+            background: var(--bg-secondary); padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        
+        .script-label {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            color: var(--text-tertiary); letter-spacing: 0.05em;
+        }
+        
+        .script-body { padding: 1.5rem 2rem; font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); }
+        .script-body p { margin-bottom: 1.25rem; }
+        .script-body p:last-child { margin-bottom: 0; }
+        .script-body strong { color: var(--color-secondary-dark); font-weight: 700; }
+        
+        /* Context Notes inside Script */
+        .script-context {
+            display: block; font-size: 0.9rem; color: var(--text-secondary);
+            font-style: italic; background: var(--bg-tertiary);
+            padding: 0.5rem 1rem; border-radius: 6px; margin-bottom: 1.25rem;
+            border-left: 3px solid var(--border-medium);
+        }
+        
+        /* Psychology Callout */
+        .psych-note {
+            margin-top: 1rem; padding: 1rem; background: #fffbeb;
+            border-left: 3px solid var(--color-accent); border-radius: 0 6px 6px 0;
+            font-size: 0.9rem; color: #92400e;
+        }
+        .psych-note strong { display: block; margin-bottom: 0.25rem; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+
+        /* Copy Button */
+        .btn-copy {
+            background: white; border: 1px solid var(--border-light);
+            padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.7rem;
+            cursor: pointer; font-weight: 600; color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+        .btn-copy:hover { border-color: var(--color-secondary); color: var(--color-secondary); }
+
+        /* Mobile */
+        @media (max-width: 1024px) {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 1.5rem; }
+            .concept-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <!-- Using company logo -->
+                <img src="amerben.png" alt="AmerBen" class="logo-image">
+                <span class="logo-text">Live Transfer Protocol v5.0</span>
+            </div>
+            <button class="btn-print" onclick="window.print()">Print Guide</button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="nav-section-title">Preparation</div>
+            <a href="#audit" class="nav-link active">Psychological Audit</a>
+            <a href="#phase1" class="nav-link">1. Authority Bridge</a>
+            <a href="#phase2" class="nav-link">2. Deep Pain Discovery</a>
+            <a href="#phase3" class="nav-link">3. Skepticism Pivot</a>
+            <a href="#phase4" class="nav-link">4. Budget Drop</a>
+            <a href="#phase5" class="nav-link">5. Expert Diagnosis</a>
+            <a href="#phase6" class="nav-link">6. Goldilocks Preso</a>
+            <a href="#phase7" class="nav-link">7. Checkbook Pivot</a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Critical Audit Section -->
+            <section id="audit" class="critical-box">
+                <h2>⚠️ Red Pen Psychological Audit</h2>
+                <p><strong>CRITICAL SHIFT:</strong> Your leads are not "Inbound Hand-Raisers." They are "Outbound Interruptions."</p>
+                <p>When a senior snaps <em>"You called me!"</em> they are really saying: <strong>"I feel out of control and I don't know who you are."</strong></p>
+                
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <div class="concept-title">False Expectation Trap</div>
+                        <div class="concept-text">Never say "I understand you'd like information." That is a lie in their mind. Use the <strong>"Assignment Frame"</strong> instead.</div>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-title">Status Imbalance</div>
+                        <div class="concept-text">Don't start from zero. You are not starting a conversation; you are <strong>continuing</strong> one as the Specialist.</div>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-title">The "Opt-Out" Fix</div>
+                        <div class="concept-text">"How are you?" is a signal to hang up. Use the <strong>"Confusion Clearer"</strong> to force engagement.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 1 -->
+            <section id="phase1" class="section">
+                <div class="section-header">
+                    <div class="section-icon">1</div>
+                    <div>
+                        <h2 class="section-title">The Authority Bridge</h2>
+                        <p class="section-subtitle">Goal: Stop the hang-up by validating confusion.</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The "Confusion Clearer" Opener</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <p>Agent: "Hello? [Name]?"</p>
+                        <span class="script-context">(Wait for Yes)</span>
+                        <p>Agent: "Okay, great. [Name], this is [Your Name], the state-licensed underwriter they just got you connected with. I appreciate your patience while they transferred you over."</p>
+                        <p><strong>"Now, I know that first agent was a bit quick—did they explain exactly who I am and why they transferred you to my desk?"</strong></p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">Handling "I Didn't Call You"</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <span class="script-context">Prospect: "No, they just put me through. I told them I wasn't interested!"</span>
+                        
+                        <p>Agent: <em>[Calm, soothing, slightly lower tone]</em> "That is exactly why they sent you to me. My job isn't to sell you anything today. I’m simply the specialist required to close out the eligibility file they started."</p>
+                        <p>"It takes about two minutes to see if you even qualify for the state-regulated benefits. If you don't, we close the file and you never hear from us again. <strong>Fair enough?</strong>"</p>
+                        
+                        <div class="psych-note">
+                            <strong>Psychology: The "Push-Pull"</strong>
+                            "We close the file and you never hear from us again" is a Take-Away. It makes you the one ending the chase, not them.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 2 -->
+            <section id="phase2" class="section">
+                <div class="section-header">
+                    <div class="section-icon">2</div>
+                    <div>
+                        <h2 class="section-title">The "Deep Pain" Discovery</h2>
+                        <p class="section-subtitle">Goal: Move from "Annoyed" to "Terrified" using Burden.</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The "Bucket" Technique</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <p>Agent: "Perfect. Now, they transferred you because our records show you are in that 'Senior Safety Zone' (Age 50-85). Usually, when I speak to folks your age, they fall into two buckets:"</p>
+                        <p>"Either they have absolutely nothing in place and would leave a mess... OR... they <em>think</em> they have enough, but they actually have one of those old policies that expire when they turn 80."</p>
+                        <p><strong>"Which one of those two buckets do you fall into right now?"</strong></p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The "Knife Twist"</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <span class="script-context">Prospect: "I have a policy/savings. I'm fine."</span>
+                        <p>Agent: "That’s excellent. My job is to stress-test that plan to make sure it actually works."</p>
+                        <p>"Let me ask you—if God forbid you didn't wake up tomorrow morning... who is the one person that would be stuck cleaning up the mess?"</p>
+                        <span class="script-context">Prospect: "My daughter, Sarah."</span>
+                        <p>Agent: "Sarah... okay. And does Sarah currently have $15,000 sitting in her personal checking account, right now, that she could write a check for on Tuesday without it hurting her own family?"</p>
+                        <span class="script-context">Prospect: "No."</span>
+                        <p>Agent: <em>[Lower voice]</em> "I see. So would she have to take out a loan? Use credit cards? Or start a GoFundMe?"</p>
+                        <p><strong>"And is that the last memory you want to leave her with? A maxed-out credit card?"</strong></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 3 -->
+            <section id="phase3" class="section">
+                <div class="section-header">
+                    <div class="section-icon">3</div>
+                    <div>
+                        <h2 class="section-title">The "Skepticism" Pivot</h2>
+                        <p class="section-subtitle">Goal: Position Bank/SSN as barriers to entry.</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">Conditional Qualification</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <p>Agent: "Okay. Let's make sure that doesn't happen. That is strictly what I am here to prevent."</p>
+                        <p>"To see if we can qualify you for the state-regulated program that pays that bill for Sarah, I just need to verify two eligibility boxes. It doesn't cost a dime to check."</p>
+                        <p><strong>"First... since these plans pay out in cash within 24 hours, you generally need to have an active checking or savings account. Do you maintain one of those locally?"</strong></p>
+                        <span class="script-context">Prospect: "Yes."</span>
+                        <p>Agent: "Okay, that’s the first box checked. And second, just to verify you aren’t currently in a nursing home or using a Power of Attorney... <strong>you make your own financial decisions, correct?</strong>"</p>
+                        
+                        <div class="psych-note">
+                            <strong>Psychology: The "Power" Frame</strong>
+                            Asking if they make their own decisions triggers their pride ("Yes, of course I do!").
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 4 -->
+            <section id="phase4" class="section">
+                <div class="section-header">
+                    <div class="section-icon">4</div>
+                    <div>
+                        <h2 class="section-title">Budget & "Price Drop"</h2>
+                        <p class="section-subtitle">Goal: Anchor high so the real price feels cheap.</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The Negative Reverse</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <p>Agent: "Okay. Based on what you’ve told me, I’m going to run a check against the top 20 carriers. I’m going to look for the 'Rate Lock' programs specifically."</p>
+                        <p>"Most folks on a fixed income tell me they want to keep this between $50 and $80 a month."</p>
+                        <p><strong>"If I find something amazing but it’s $150 a month, are you going to kick me off the phone?"</strong></p>
+                        <span class="script-context">Prospect: "Haha, yeah, $150 is too much."</span>
+                        <p>Agent: "I figured. Let's aim for that 'Sweet Spot' of $60 to $80 so it never becomes a burden. Let me see what the computer says..."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 5 -->
+            <section id="phase5" class="section">
+                <div class="section-header">
+                    <div class="section-icon">5</div>
+                    <div>
+                        <h2 class="section-title">The "Expert Diagnosis"</h2>
+                        <p class="section-subtitle">Replacing "The Computer" with "The Advisor".</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The Winner Frame</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <p>Agent: "Okay, give me a moment here... I’m looking at the rates for a 65-year-old in [State]... and taking into account that blood pressure medication..."</p>
+                        <span class="script-context">[Silence for 4 seconds - let them hear you thinking/typing]</span>
+                        <p>Agent: <strong>"Okay, I’m looking at the top three carriers, but honestly? Mutual of Omaha is beating the others by a mile for your specific situation."</strong></p>
+                        <p>"The reason I like them for you is simple: They don’t nitpick about the blood pressure meds, and they include the Immediate Payout from Day 1. So if God forbid something happens next week, Sarah gets the full check. That’s the most important part, right?"</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 6 -->
+            <section id="phase6" class="section">
+                <div class="section-header">
+                    <div class="section-icon">6</div>
+                    <div>
+                        <h2 class="section-title">The "Goldilocks" Presentation</h2>
+                        <p class="section-subtitle">Goal: The Choice Architecture Close.</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The Trade-Off Close</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <p>Agent: "So, I’ve got three ways we can set this up for Sarah. You tell me which one feels right."</p>
+                        <p>"The first one is what I call the <strong>'Full Legacy'</strong> plan. That creates a <strong>$15,000</strong> safety net. It pays for the funeral, the stone, and leaves Sarah about $5,000 extra to pay off any bills. That one is <strong>$XX</strong> a month."</p>
+                        <p>"The second one is the <strong>'Debt-Free'</strong> plan. That gives her <strong>$10,000</strong>. It covers the funeral completely so she doesn't pay a dime out of pocket. That one is <strong>$XX</strong> a month."</p>
+                        <p>"And the third one is the <strong>'Starter'</strong> plan. It’s <strong>$7,000</strong>. It covers the cremation and the basics, but there won't be much left over. That is <strong>$XX</strong> a month."</p>
+                        <p>Agent: <em>[Lower voice, casual]</em> <strong>"Looking at those three... do you want to leave her the extra cushion with the $15,000, or does the $10,000 feel like a better fit for the budget right now?"</strong></p>
+                        
+                        <div class="psych-note">
+                            <strong>Psychology: The Nudge</strong>
+                            Notice we didn't ask about the $7,000 option. We only offered the top two choices in the closing question.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phase 7 -->
+            <section id="phase7" class="section">
+                <div class="section-header">
+                    <div class="section-icon">7</div>
+                    <div>
+                        <h2 class="section-title">The "Checkbook" Pivot</h2>
+                        <p class="section-subtitle">Goal: Frictionless transition to binding.</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The "Help Me Help You" Command</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <span class="script-context">Prospect: "I think the $10,000 is better."</span>
+                        <p>Agent: "Good choice. That’s exactly the one I would have recommended. Now, we need to make sure this money goes to Sarah and nobody else. I need to ask you the formal health questions for the recording to get you approved."</p>
+                        <span class="script-context">(Ask Formal Health Questions)</span>
+                        <p>Agent: "Perfect. You passed with flying colors. Now, the last thing is setting up the start date. Most folks like the premiums to come out on the 1st or the 3rd of the month to match their Social Security deposit. Which day is better for you?"</p>
+                        <span class="script-context">Prospect: "The 3rd."</span>
+                        <p>Agent: "Okay, the 3rd it is. And do you bank with a big bank like Chase or Wells Fargo, or a local credit union?"</p>
+                        <span class="script-context">Prospect: "I use the local credit union."</span>
+                        <p>Agent: <strong>"Okay, perfect. Grab your checkbook really quick—I need to get the 9-digit routing number off the bottom so the insurance company knows exactly which bank to verify. I'll hold on while you grab it."</strong></p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Copy Text Function
+        function copyScript(btn) {
+            const scriptBlock = btn.closest('.script-card, .script-block');
+            const scriptText = scriptBlock.querySelector('.script-body, .script-text').innerText;
+            
+            navigator.clipboard.writeText(scriptText).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = 'Copied!';
+                btn.style.color = 'var(--color-secondary)';
+                btn.style.borderColor = 'var(--color-secondary)';
+                setTimeout(() => { 
+                    btn.innerHTML = originalText; 
+                    btn.style.color = '';
+                    btn.style.borderColor = '';
+                }, 2000);
+            });
+        }
+        
+        // ScrollSpy to update active nav item on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.section, .critical-box');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-link').forEach(li => {
+                li.classList.remove('active');
+                if (li.getAttribute('href') === '#' + current) {
+                    li.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
