@@ -177,6 +177,13 @@
         .concept-title { font-weight: 700; font-size: 0.85rem; color: var(--color-secondary); margin-bottom: 0.5rem; text-transform: uppercase; }
         .concept-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; }
         
+        /* Danger Box for Forbidden Actions */
+        .danger-box {
+            background: #fef2f2; border: 1px solid #fee2e2; border-left: 4px solid var(--color-accent);
+            padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; color: #991b1b;
+        }
+        .danger-title { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        
         /* Script Cards */
         .script-card {
             background: white; border-radius: var(--radius-xl);
@@ -197,7 +204,7 @@
         
         /* Spacing Fix for Script Body */
         .script-body { padding: 1.5rem 2rem; font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); }
-        .script-body p { margin-bottom: 1.25rem; } /* Consistent spacing between lines/paragraphs */
+        .script-body p { margin-bottom: 1rem; } /* Professional paragraph spacing */
         .script-body p:last-child { margin-bottom: 0; }
         .script-body strong { color: var(--color-secondary-dark); font-weight: 700; }
         
@@ -205,7 +212,7 @@
         .script-context {
             display: block; font-size: 0.9rem; color: var(--text-secondary);
             font-style: italic; background: var(--bg-tertiary);
-            padding: 0.5rem 1rem; border-radius: 6px; margin-bottom: 1.25rem;
+            padding: 0.5rem 1rem; border-radius: 6px; margin-bottom: 1rem;
             border-left: 3px solid var(--border-medium);
         }
         
@@ -240,8 +247,8 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <img src="/amerben.png" alt="AmerBen" class="logo-image">
-                <span class="logo-text">Live Transfer Protocol v5.0</span>
+                <img src="amerben.png" alt="AmerBen" class="logo-image">
+                <span class="logo-text">Live Transfer Protocol v5.1</span>
             </div>
             <button class="btn-print" onclick="window.print()">Print Guide</button>
         </div>
@@ -250,13 +257,12 @@
     <div class="app-container">
         <!-- Sidebar Navigation -->
         <nav class="sidebar">
-            <div class="nav-section-title">Preparation</div>
-            <a href="#audit" class="nav-link active">Psychological Audit</a>
-            <a href="#phase1" class="nav-link">1. Authority Bridge</a>
-            <a href="#phase2" class="nav-link">2. Deep Pain Discovery</a>
-            <a href="#phase3" class="nav-link">3. Skepticism Pivot</a>
-            <a href="#phase4" class="nav-link">4. Budget Drop</a>
-            <a href="#phase5" class="nav-link">5. Expert Diagnosis</a>
+            <div class="nav-section-title">The Script Phases</div>
+            <a href="#phase1" class="nav-link active">1. Opening & Bridge</a>
+            <a href="#phase2" class="nav-link">2. Deep Discovery</a>
+            <a href="#phase3" class="nav-link">3. Health & Value</a>
+            <a href="#phase4" class="nav-link">4. The Mandate</a>
+            <a href="#phase5" class="nav-link">5. The Verdict</a>
             <a href="#phase6" class="nav-link">6. Goldilocks Preso</a>
             <a href="#phase7" class="nav-link">7. Checkbook Pivot</a>
         </nav>
@@ -264,58 +270,76 @@
         <!-- Main Content -->
         <main class="main-content">
 
-            <!-- Critical Audit Section -->
-            <section id="audit" class="critical-box">
-                <h2>⚠️ Red Pen Psychological Audit</h2>
-                <p><strong>CRITICAL SHIFT:</strong> Your leads are not "Inbound Hand-Raisers." They are "Outbound Interruptions."</p>
-                <p>When a senior snaps <em>"You called me!"</em> they are really saying: <strong>"I feel out of control and I don't know who you are."</strong></p>
-                
-                <div class="concept-grid">
-                    <div class="concept-card">
-                        <div class="concept-title">False Expectation Trap</div>
-                        <div class="concept-text">Never say "I understand you'd like information." That is a lie in their mind. Use the <strong>"Assignment Frame"</strong> instead.</div>
-                    </div>
-                    <div class="concept-card">
-                        <div class="concept-title">Status Imbalance</div>
-                        <div class="concept-text">Don't start from zero. You are not starting a conversation; you are <strong>continuing</strong> one as the Specialist.</div>
-                    </div>
-                    <div class="concept-card">
-                        <div class="concept-title">The "Opt-Out" Fix</div>
-                        <div class="concept-text">"How are you?" is a signal to hang up. Use the <strong>"Confusion Clearer"</strong> to force engagement.</div>
-                    </div>
-                </div>
+            <!-- Title -->
+            <section style="margin-bottom: 3rem;">
+                <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">FE Live Transfer Script</h1>
+                <p style="font-size: 1.1rem; color: var(--text-secondary);">Version 5.1 • Authority & Empathy Approach</p>
             </section>
+
+            <!-- Critical Warnings -->
+            <div class="danger-box">
+                <div class="danger-title">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    FORBIDDEN PHRASES
+                </div>
+                <p style="margin-bottom: 0; color: #7f1d1d; font-weight: 600;">
+                    NEVER answer the phone with "How may I help you?" or "How are you today?"<br>
+                    These phrases immediately position you as a customer service rep, not an expert.
+                </p>
+            </div>
 
             <!-- Phase 1 -->
             <section id="phase1" class="section">
                 <div class="section-header">
                     <div class="section-icon">1</div>
                     <div class="section-info">
-                        <h2 class="section-title">The Authority Bridge (Survival Mode)</h2>
-                        <p class="section-subtitle">Goal: Stop the hang-up in the first 10 seconds by validating their confusion.</p>
+                        <h2 class="section-title">Opening & Bridge</h2>
+                        <p class="section-subtitle">Establishing authority and identifying the prospect.</p>
                     </div>
                 </div>
 
+                <!-- Scenario A: Blind Transfer -->
                 <div class="script-card">
                     <div class="script-header">
-                        <span class="script-label">The "Confusion Clearer" Opener</span>
+                        <span class="script-label">Scenario A: The "Blind" Opener</span>
                         <button class="btn-copy" onclick="copyScript(this)">Copy</button>
                     </div>
                     <div class="script-body">
-                        <p>Agent: "Hello? [Name]?"</p>
-                        <span class="script-context">(Wait for Yes)</span>
-                        <p>Agent: "Okay, great. [Name], this is [Your Name], the state-licensed underwriter they just got you connected with. I know that first agent was a bit quick—did they explain exactly who I am and why they transferred you to my desk?"</p>
+                        <span class="script-context">(Fronter connects the call)</span>
+                        <p>Agent: "Hi, this is [Agent Name]. Whom do I have the pleasure of speaking with?"</p>
                         
-                        <span class="script-context">Prospect: "No, they just put me through. I told them I wasn't interested! I didn't call you!"</span>
+                        <span class="script-context">[WAIT FOR NAME. If they mumble or it's unclear, DO NOT ask them to spell it. Move on.]</span>
                         
-                        <p>Agent: <em>[Calm, soothing, slightly lower tone]</em> "That is exactly why they sent you to me. My job isn't to sell you anything today. I'm simply the specialist required to close out the eligibility file they started."</p>
-                        <p>Agent: "It takes about two minutes to see if you even qualify for the state-regulated benefits. If you don't, we close the file and you never hear from us again. <strong>Fair enough?</strong>"</p>
+                        <p>Prospect: "[Name]"</p>
                         
-                        <div class="psych-note">
-                            <strong>🧠 Psychology: The "Confusion Clearer"</strong>
-                            <p><strong>Validation:</strong> You agree with them ("I know they were quick") which stops the fight.</p>
-                            <p><strong>The Take-Away:</strong> "We close the file and you never hear from us again" makes you the one ending the chase, not them.</p>
-                        </div>
+                        <p>Agent: "Pleasure to meet you, [Name]. I appreciate you holding. The previous agent just transferred you to me because I’m the local licensed specialist for [State]. They mentioned you’re [Age] and living in [City], right?"</p>
+                        
+                        <span class="script-context">Prospect: "Yes."</span>
+                        
+                        <p>Agent: "Okay, great. Now [Prospect Name], I know you didn't wake up this morning expecting to hear from me—we called you. But since I have you on the line, my job is pretty simple — I'll ask you a few quick questions, show you exactly what you qualify for, and then you decide if it makes sense. <strong>Fair enough?</strong>"</p>
+                        
+                        <span class="script-context">Prospect: "I guess so."</span>
+                    </div>
+                </div>
+
+                <!-- Scenario B: Warm Transfer -->
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">Scenario B: The Warm Transfer (Introduced)</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <span class="script-context">(Fronter stays on the line: "Hi Agent, I have [Prospect] on the line, they are [Age] in [State]...")</span>
+                        
+                        <p>Agent (To Fronter): "Thanks [Fronter Name], I see the file here. I'll take it from here."</p>
+                        
+                        <span class="script-context">(Fronter drops off)</span>
+                        
+                        <p>Agent (To Prospect): "Hi [Prospect Name], this is [Agent Name], the licensed specialist for [State]. I appreciate your patience while they got us connected. [Fronter Name] got me up to speed—they mentioned you're [Age] and looking to make sure the family isn't stuck with a bill, is that right?"</p>
+                        
+                        <span class="script-context">Prospect: "Yes."</span>
+                        
+                        <p>Agent: "Perfect. Like I said, I'm the specialist for the area. My job is simple—I'll ask a few quick questions to see if you qualify for the state-regulated benefits. If you do, I'll show you the numbers. If not, I'll tell you that too. <strong>Fair enough?</strong>"</p>
                     </div>
                 </div>
             </section>
@@ -325,32 +349,39 @@
                 <div class="section-header">
                     <div class="section-icon">2</div>
                     <div class="section-info">
-                        <h2 class="section-title">The "Reality Check" (No Fluff)</h2>
-                        <p class="section-subtitle">Goal: Get to the pain point quickly and directly.</p>
+                        <h2 class="section-title">Deep Discovery</h2>
+                        <p class="section-subtitle">Surfacing the "Why" and the "Pain"</p>
                     </div>
                 </div>
 
                 <div class="script-card">
                     <div class="script-header">
-                        <span class="script-label">The Reality Check</span>
+                        <span class="script-label">The Motivation Check</span>
                         <button class="btn-copy" onclick="copyScript(this)">Copy</button>
                     </div>
                     <div class="script-body">
-                        <p>Agent: "Perfect. Now, usually when files come to my desk, it's because someone is worried about leaving a financial mess. Let me ask you a tough question."</p>
-                        
-                        <p>Agent: "If you didn't wake up tomorrow morning... who is the one person that would have to pick up the phone and handle everything?"</p>
-                        
+                        <p>Agent: "Great. So [First Name], when you were speaking with [Front-End Agent], you mentioned you wanted to make sure your family isn't stuck dealing with any final expenses when that time comes. Is that still the main thing on your mind, or is there something else driving this for you?"</p>
+                        <span class="script-context">(Listen to their response)</span>
+                        <p>Agent: "I appreciate you sharing that. You know, a lot of the folks I talk to—they're not worried about themselves. They've lived their life. What keeps them up at night is the thought of their kids or grandkids having to scramble to come up with $10,000, $15,000, or more just to lay them to rest properly. Does that resonate with you at all?"</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The "Reality of Debt" Sequence</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <p>Agent: "Perfect. So, If you didn't wake up tomorrow morning... who is the one person that would have to pick up the phone and handle everything?"</p>
                         <span class="script-context">Prospect: "My daughter, Sarah."</span>
-                        
                         <p>Agent: "Sarah. Okay. Now, [Name], most people don't realize that funeral homes are businesses. They generally require the full $10,000 to $15,000 upfront before they will even open the doors."</p>
-                        
-                        <p>Agent: "Knowing Sarah's financial situation... is she in a position to write a check that big on a Tuesday morning? Or would that be a financial disaster for her?"</p>
-                        
-                        <span class="script-context">Prospect: "She couldn't do that."</span>
-                        
-                        <p>Agent: <em>[Gentle, lowering voice]</em> "I understand. That puts her in a terrible spot. Because if she doesn't have the cash... the funeral director is going to ask for a credit card."</p>
-                        
-                        <p>Agent: <strong>"My guess is... avoiding that debt is the exact reason why we are talking today, right?"</strong></p>
+                        <p>Agent: "Knowing Sarah's financial situation... is she in a position to write a check that big on a Tuesday morning?"</p>
+                        <span class="script-context">Prospect: "No, she isn't."</span>
+                        <p>Agent: "Ok. Sarah would have to come up with that money somehow. How would that affect her? Would she have to borrow it? Go into debt?"</p>
+                        <span class="script-context">(Silence. Let the reality sink in.)</span>
+                        <span class="script-context">Prospect: "It would be really hard for her."</span>
+                        <p>Agent: "That’s exactly why [Fronter] put you on the line with me. We want to make sure Sarah gets a check, not a bill. My goal is to set this up so she never has to worry about the money. Does that sound like what you want to accomplish?"</p>
+                        <span class="script-context">Prospect: "Yes."</span>
                     </div>
                 </div>
             </section>
@@ -360,25 +391,39 @@
                 <div class="section-header">
                     <div class="section-icon">3</div>
                     <div class="section-info">
-                        <h2 class="section-title">The "Skepticism" Pivot</h2>
-                        <p class="section-subtitle">Goal: Position Bank/SSN as barriers to entry.</p>
+                        <h2 class="section-title">Health & Value</h2>
+                        <p class="section-subtitle">Qualifying and Building the "Day One" Value</p>
                     </div>
                 </div>
 
                 <div class="script-card">
                     <div class="script-header">
-                        <span class="script-label">The Solution</span>
+                        <span class="script-label">Health Questions</span>
                         <button class="btn-copy" onclick="copyScript(this)">Copy</button>
                     </div>
                     <div class="script-body">
-                        <p>Agent: "Okay. Let's make sure that doesn't happen. That is strictly what I am here to prevent."</p>
-                        <p>Agent: "To see if we can qualify you for the state-regulated program that pays that bill for Sarah, I just need to verify two eligibility boxes. It doesn't cost a dime to check."</p>
-                        
-                        <p>Agent: <strong>"First... since these plans pay out in cash within 24 hours, you generally need to have an active checking or savings account. Do you maintain one of those locally?"</strong></p>
-                        
-                        <span class="script-context">Prospect: "Yes, I have a bank account."</span>
-                        
-                        <p>Agent: "Okay, that's the first box checked. And second, just to verify you aren't currently in a nursing home or using a Power of Attorney... <strong>you make your own financial decisions, correct?</strong>"</p>
+                        <p>Agent: "Alright [First Name], so here's what I want to do. I'm going to ask you a few quick health questions—nothing invasive—just so I can match you with the right program and make sure you're not overpaying for something you don't need. Sound good?"</p>
+                        <span class="script-context">[Maintain Conversational Tone]</span>
+                        <p>Agent:<br>
+                        "Are you currently taking any medications for your heart—like blood thinners, or anything for cholesterol or blood pressure?"<br>
+                        "Any history of cancer, stroke, or diabetes?"<br>
+                        "Have you been hospitalized for anything in the last two years?"<br>
+                        "Do you use any oxygen equipment or have any issues with your lungs?"<br>
+                        "Do you smoke or use tobacco?"</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The Value Stack</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <p>Agent: "Good news, [First Name]—based on what you've told me, you qualify for our [Plan Name/Tier] program. Let me tell you exactly what that means for you."</p>
+                        <p>Agent: "So here's what you're looking at, [First Name]. This is a whole life insurance policy—not term, whole life. That means a few important things:</p>
+                        <p><strong>First, your rate is locked in.</strong> The price I give you today will never go up—not next year, not in ten years, not ever. Even if your health changes.</p>
+                        <p><strong>Second, the benefit is guaranteed.</strong> There's no fine print that lets the insurance company wiggle out of paying. When that time comes, your beneficiary—whoever you choose—receives the full amount, tax-free, usually within 24 to 48 hours. No waiting, no red tape.</p>
+                        <p><strong>Third, this is 'Day One' coverage.</strong> That means the full benefit is available immediately. Some policies make you wait two years—not this one. You're fully protected from day one."</p>
                     </div>
                 </div>
             </section>
@@ -388,28 +433,23 @@
                 <div class="section-header">
                     <div class="section-icon">4</div>
                     <div class="section-info">
-                        <h2 class="section-title">Budget & "The Mandate" (No Theater)</h2>
-                        <p class="section-subtitle">Goal: Anchor the price high so the real price feels cheap.</p>
+                        <h2 class="section-title">The "Mandate"</h2>
+                        <p class="section-subtitle">Budget setting with "No Theater"</p>
                     </div>
                 </div>
 
                 <div class="script-card">
                     <div class="script-header">
-                        <span class="script-label">The Mandate</span>
+                        <span class="script-label">The Budget Anchor</span>
                         <button class="btn-copy" onclick="copyScript(this)">Copy</button>
                     </div>
                     <div class="script-body">
                         <p>Agent: "Okay. Based on what you've told me, I'm going to run a comparison across the top state-approved carriers. I'm filtering strictly for the 'Rate Lock' programs."</p>
-                        
-                        <p>Agent: "Most folks on a fixed income tell me they want to keep this between $50 and $80 a month."</p>
-                        
-                        <p>Agent: <strong>"If I find the right plan but it comes back at $150 a month, are you going to kick me off the phone?"</strong></p>
-                        
+                        <p>"Most folks on a fixed income tell me they want to keep this between $50 and $80 a month."</p>
+                        <p><strong>"If I find the right plan but it comes back at $150 a month, are you going to kick me off the phone?"</strong></p>
                         <span class="script-context">Prospect: "Haha, yeah, $150 is too much."</span>
-                        
                         <p>Agent: "I figured. Let me pull the numbers now. Hold on."</p>
-                        
-                        <span class="script-context">[Silence for 10-15 seconds. Agent actually pulls quotes. No talking. No fake "I'm working on it" commentary. Let the dead air build tension.]</span>
+                        <span class="script-context">[Silence for 10-15 seconds. Agent actually pulls quotes. No talking. No fake "I'm working on it" commentary.]</span>
                     </div>
                 </div>
             </section>
@@ -419,30 +459,32 @@
                 <div class="section-header">
                     <div class="section-icon">5</div>
                     <div class="section-info">
-                        <h2 class="section-title">The "Expert Diagnosis"</h2>
-                        <p class="section-subtitle">Goal: Replace "The Computer" with "The Trusted Advisor."</p>
+                        <h2 class="section-title">The "Verdict"</h2>
+                        <p class="section-subtitle">Scenario-Based Expert Diagnosis</p>
                     </div>
                 </div>
 
                 <div class="script-card">
                     <div class="script-header">
-                        <span class="script-label">The Verdict</span>
+                        <span class="script-label">The Expert Selection</span>
                         <button class="btn-copy" onclick="copyScript(this)">Copy</button>
                     </div>
                     <div class="script-body">
-                        <p>Agent: "Okay, I've got the comparison results. I'm looking at the top three carriers available in [State]."</p>
+                        <p>Agent: "Okay, I’ve got the comparison results. I’m looking at the top three carriers available in [State]."</p>
                         <span class="script-context">[Silence for 3 seconds - pure confidence]</span>
                         <p>Agent: "Okay, looking at the hard numbers... [Insert Carrier Name] is the clear winner for your situation."</p>
                         
-                        <p style="background: var(--bg-tertiary); padding: 0.75rem 1rem; border-radius: 6px; font-weight: 700; margin-top: 1.25rem; border-left: 3px solid var(--color-secondary);">(CHOOSE THE PATH THAT MATCHES THE PROSPECT)</p>
+                        <div style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px; margin: 1rem 0; border: 1px solid var(--border-light);">
+                            <strong>PATH A: If They Are HEALTHY (The "Reward" Pivot)</strong><br>
+                            <p style="margin-top: 0.5rem;">Agent: "The reason I picked them is simple: Because you are in such good health for your age, they are rewarding you with their 'Preferred Standard Rate.' Most carriers would try to charge you the normal price, but these guys are giving you the discount because you take care of yourself."</p>
+                        </div>
                         
-                        <p style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; font-weight: 700; margin-top: 1rem;">PATH A: If They Are HEALTHY (The "Reward" Pivot)</p>
-                        <p>Agent: "The reason I picked them is simple: Because you are in such good health for your age, they are rewarding you with their 'Preferred Standard Rate.' Most carriers would try to charge you the normal price, but these guys are giving you the discount because you take care of yourself."</p>
+                        <div style="background: var(--bg-tertiary); padding: 1rem; border-radius: 8px; margin: 1rem 0; border: 1px solid var(--border-light);">
+                            <strong>PATH B: If They Have HEALTH ISSUES (The "Leniency" Pivot)</strong><br>
+                            <p style="margin-top: 0.5rem;">Agent: "The reason I picked them is simple: They are the most lenient carrier regarding [Insert Condition, e.g., the insulin/blood pressure]. Most companies would force you into a waiting period for that, but these guys are accepting you for the Immediate Payout from Day 1."</p>
+                        </div>
                         
-                        <p style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; font-weight: 700; margin-top: 1rem;">PATH B: If They Have HEALTH ISSUES (The "Leniency" Pivot)</p>
-                        <p>Agent: "The reason I picked them is simple: They are the most lenient carrier regarding [Insert Condition, e.g., the insulin/blood pressure]. Most companies would force you into a waiting period for that, but these guys are accepting you for the Immediate Payout from Day 1."</p>
-                        
-                        <p>Agent: <strong>"So if something happens next week, Sarah gets the full check tax-free. That's the most important part, right?"</strong></p>
+                        <p><strong>"So if God forbid something happens next week, Sarah gets the full check tax-free. That’s the most important part, right?"</strong></p>
                     </div>
                 </div>
             </section>
@@ -453,7 +495,7 @@
                     <div class="section-icon">6</div>
                     <div class="section-info">
                         <h2 class="section-title">The "Goldilocks" Presentation</h2>
-                        <p class="section-subtitle">Goal: The Choice Architecture Close.</p>
+                        <p class="section-subtitle">Choice Architecture Close</p>
                     </div>
                 </div>
 
@@ -463,19 +505,24 @@
                         <button class="btn-copy" onclick="copyScript(this)">Copy</button>
                     </div>
                     <div class="script-body">
-                        <p>Agent: "So, I've got three ways we can set this up for Sarah. You tell me which one feels right."</p>
-                        
-                        <p>Agent: "The first one is what I call the <strong>'Full Legacy'</strong> plan. That creates a <strong>$15,000</strong> safety net. It pays for the funeral, the stone, and leaves Sarah about $5,000 extra to pay off any bills. That one is <strong>$XX</strong> a month."</p>
-                        
-                        <p>Agent: "The second one is the <strong>'Debt-Free'</strong> plan. That gives her <strong>$10,000</strong>. It covers the funeral completely so she doesn't pay a dime out of pocket. That one is <strong>$XX</strong> a month."</p>
-                        
-                        <p>Agent: "And the third one is the <strong>'Starter'</strong> plan. It's <strong>$7,000</strong>. It covers the cremation and the basics, but there won't be much left over. That is <strong>$XX</strong> a month."</p>
-                        
-                        <p>Agent: <em>[Lower voice, casual]</em> <strong>"Looking at those three... do you want to leave her the extra cushion with the $15,000, or does the $10,000 feel like a better fit for the budget right now?"</strong></p>
-                        
+                        <p>Agent: "So, I’ve got three ways we can set this up for Sarah. You tell me which one feels right."</p>
+                        <p>"The first one is what I call the <strong>'Full Legacy'</strong> plan. That creates a <strong>$15,000</strong> safety net. It pays for the funeral, the stone, and leaves Sarah about $5,000 extra to pay off any bills or take time off work. That one is <strong>$XX</strong> a month."</p>
+                        <p>"The second one is the <strong>'Debt-Free'</strong> plan. That gives her <strong>$10,000</strong>. It covers the funeral completely so she doesn't pay a dime out of pocket. That one is <strong>$XX</strong> a month."</p>
+                        <p>"And the third one is the <strong>'Starter'</strong> plan. It’s <strong>$7,000</strong>. It covers the cremation and the basics, but there won't be much left over. That is <strong>$XX</strong> a month."</p>
+                    </div>
+                </div>
+
+                <div class="script-card">
+                    <div class="script-header">
+                        <span class="script-label">The "Trade-Off" Close</span>
+                        <button class="btn-copy" onclick="copyScript(this)">Copy</button>
+                    </div>
+                    <div class="script-body">
+                        <span class="script-context">[Tonality: Lower voice, casual]</span>
+                        <p>Agent: <strong>"Looking at those three... do you want to leave her the extra cushion with the $15,000, or does the $10,000 feel like a better fit for the budget right now?"</strong></p>
                         <div class="psych-note">
-                            <strong>🧠 Psychology: The "Trade-Off"</strong>
-                            <p>Nudges them away from the bottom option by only offering the top two in the closing question. "Which protects Sarah best?"</p>
+                            <strong>Psychology: The "Choice Architecture"</strong>
+                            Nudges them away from the bottom option by only offering the top two in the closing question. "Which protects Sarah best?"
                         </div>
                     </div>
                 </div>
@@ -487,7 +534,7 @@
                     <div class="section-icon">7</div>
                     <div class="section-info">
                         <h2 class="section-title">The "Checkbook" Pivot</h2>
-                        <p class="section-subtitle">Goal: Frictionless transition to binding coverage.</p>
+                        <p class="section-subtitle">Frictionless Transition</p>
                     </div>
                 </div>
 
@@ -499,25 +546,17 @@
                     <div class="script-body">
                         <span class="script-context">Prospect: "I think the $10,000 is better."</span>
                         
-                        <p>Agent: "Good choice. That's exactly the one I would have recommended. It gets the job done without breaking the bank."</p>
-                        <p>Agent: "Now, we need to make sure this money goes to Sarah and nobody else. I need to ask you the formal health questions for the recording to get you approved."</p>
+                        <p>Agent: "Good choice. That’s exactly the one I would have recommended. It gets the job done without breaking the bank."</p>
+                        <p>"Now, we need to make sure this money goes to Sarah and nobody else. I need to ask you the formal health questions for the recording to get you approved."</p>
                         <span class="script-context">(Ask Formal Health Questions)</span>
                         
                         <p>Agent: "Perfect. You passed with flying colors. Now, the last thing is setting up the start date. Most folks like the premiums to come out on the 1st or the 3rd of the month to match their Social Security deposit. Which day is better for you?"</p>
-                        
                         <span class="script-context">Prospect: "The 3rd."</span>
                         
                         <p>Agent: "Okay, the 3rd it is. And do you bank with a big bank like Chase or Wells Fargo, or a local credit union?"</p>
-                        
                         <span class="script-context">Prospect: "I use the local credit union."</span>
                         
                         <p>Agent: <strong>"Okay, perfect. Grab your checkbook really quick—I need to get the 9-digit routing number off the bottom so the insurance company knows exactly which bank to verify. I'll hold on while you grab it."</strong></p>
-                        
-                        <div class="psych-note">
-                            <strong>🧠 Psychology: The "Help Me Help You" Command</strong>
-                            <p><strong>Logistics First:</strong> You get them agreeing to dates and bank types before asking for the number.</p>
-                            <p><strong>The Command:</strong> "Grab your checkbook" is an instruction, not a question. "I'll hold on" assumes compliance.</p>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -539,8 +578,8 @@
 
         // Copy Text Function
         function copyScript(btn) {
-            const scriptBlock = btn.closest('.script-card, .script-block');
-            const scriptText = scriptBlock.querySelector('.script-body, .script-text').innerText;
+            const scriptBlock = btn.closest('.script-card');
+            const scriptText = scriptBlock.querySelector('.script-body').innerText;
             
             navigator.clipboard.writeText(scriptText).then(() => {
                 const originalText = btn.innerHTML;
@@ -558,7 +597,7 @@
         // ScrollSpy to update active nav item on scroll
         window.addEventListener('scroll', () => {
             let current = '';
-            const sections = document.querySelectorAll('.section, .critical-box');
+            const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 if (window.scrollY >= sectionTop - 150) {
