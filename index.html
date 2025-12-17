@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmerBen Agent Scripts | Professional Sales Playbooks</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Access AmerBen's professional agent scripts and sales playbooks for final expense insurance. Master live transfers and application completion.">
+    <meta name="description" content="Access AmerBen's professional agent scripts and sales playbooks for final expense insurance.">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
     
     <style>
-        /* ============================================
-           CSS CUSTOM PROPERTIES
-           ============================================ */
         :root {
             --color-primary: #0f172a;
             --color-secondary: #2563eb;
@@ -32,62 +26,44 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8fafc;
             --bg-tertiary: #f1f5f9;
-            --bg-dark: #0f172a;
             
             --text-primary: #0f172a;
             --text-secondary: #475569;
             --text-tertiary: #64748b;
-            --text-white: #ffffff;
             
             --border-light: #e2e8f0;
             --border-medium: #cbd5e1;
             
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            --shadow-glow-blue: 0 0 60px -15px rgba(37, 99, 235, 0.4);
-            --shadow-glow-amber: 0 0 60px -15px rgba(245, 158, 11, 0.4);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-glow-blue: 0 0 40px -10px rgba(37, 99, 235, 0.5);
+            --shadow-glow-amber: 0 0 40px -10px rgba(245, 158, 11, 0.5);
             
             --radius-md: 0.5rem;
             --radius-lg: 0.75rem;
             --radius-xl: 1rem;
-            --radius-2xl: 1.5rem;
             
-            --header-height: 80px;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            
-            --transition-fast: 150ms ease;
-            --transition-base: 250ms ease;
-            --transition-slow: 350ms ease;
+            --header-height: 70px;
+            --font-sans: 'Inter', -apple-system, sans-serif;
         }
         
-        /* ============================================
-           RESET & BASE
-           ============================================ */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         
-        html {
-            scroll-behavior: smooth;
+        html, body {
+            height: 100%;
+            overflow: hidden;
         }
         
         body {
             font-family: var(--font-sans);
             color: var(--text-primary);
             background: var(--bg-secondary);
-            line-height: 1.6;
-            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* ============================================
-           HEADER
-           ============================================ */
+        /* HEADER */
         .header {
             position: fixed;
             top: 0;
@@ -101,7 +77,6 @@
             align-items: center;
             padding: 0 2rem;
             backdrop-filter: blur(12px);
-            box-shadow: var(--shadow-sm);
         }
         
         .header-content {
@@ -109,54 +84,41 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 1.25rem;
+            gap: 1rem;
         }
         
         .logo-image {
-            height: 55px;
+            height: 48px;
             width: auto;
-            object-fit: contain;
         }
         
         .logo-divider {
-            width: 2px;
-            height: 40px;
-            background: linear-gradient(180deg, transparent, var(--border-medium), transparent);
+            width: 1px;
+            height: 32px;
+            background: var(--border-medium);
         }
         
         .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .logo-title {
-            font-weight: 800;
-            font-size: 1.125rem;
+            font-weight: 700;
+            font-size: 1rem;
             color: var(--text-primary);
-            letter-spacing: -0.02em;
-        }
-        
-        .logo-subtitle {
-            font-size: 0.75rem;
-            color: var(--text-tertiary);
-            font-weight: 500;
         }
         
         .header-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
+            gap: 0.4rem;
+            padding: 0.4rem 0.8rem;
             background: linear-gradient(135deg, var(--color-success), #059669);
             color: white;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             border-radius: 50px;
             text-transform: uppercase;
@@ -164,110 +126,72 @@
         }
         
         .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background: white;
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.1); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
         
-        /* ============================================
-           MAIN CONTENT
-           ============================================ */
+        /* MAIN LAYOUT */
         .main {
-            padding-top: calc(var(--header-height) + 3rem);
-            padding-bottom: 4rem;
-            min-height: 100vh;
+            height: calc(100vh - var(--header-height));
+            margin-top: var(--header-height);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.5rem 2rem;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 2rem;
+            width: 100%;
         }
         
-        /* ============================================
-           HERO SECTION
-           ============================================ */
+        /* HERO */
         .hero {
             text-align: center;
-            padding: 3rem 0 4rem;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.25rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-light);
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .hero-badge-icon {
-            font-size: 1rem;
         }
         
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--color-secondary) 50%, var(--color-secondary-dark) 100%);
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--color-secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1rem;
             color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            line-height: 1.7;
+            max-width: 500px;
+            margin: 0 auto;
         }
         
-        /* ============================================
-           SCRIPT CARDS GRID
-           ============================================ */
+        /* SCRIPT CARDS */
         .scripts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
         
         .script-card {
             position: relative;
             background: var(--bg-primary);
-            border-radius: var(--radius-2xl);
+            border-radius: var(--radius-xl);
             overflow: hidden;
-            transition: all var(--transition-base);
+            transition: all 0.25s ease;
             border: 1px solid var(--border-light);
             text-decoration: none;
             color: inherit;
@@ -276,24 +200,19 @@
         }
         
         .script-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .script-card.primary:hover {
-            box-shadow: var(--shadow-glow-blue);
-        }
-        
-        .script-card.secondary:hover {
-            box-shadow: var(--shadow-glow-amber);
-        }
+        .script-card.primary:hover { box-shadow: var(--shadow-glow-blue); }
+        .script-card.secondary:hover { box-shadow: var(--shadow-glow-amber); }
         
         .card-gradient {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
+            height: 4px;
         }
         
         .script-card.primary .card-gradient {
@@ -305,7 +224,7 @@
         }
         
         .card-content {
-            padding: 2.5rem;
+            padding: 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -313,105 +232,95 @@
         
         .card-header {
             display: flex;
-            align-items: flex-start;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
         }
         
         .card-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: var(--radius-xl);
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
         
         .script-card.primary .card-icon {
             background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
-            box-shadow: 0 8px 24px -8px rgba(37, 99, 235, 0.5);
+            box-shadow: 0 4px 12px -4px rgba(37, 99, 235, 0.5);
         }
         
         .script-card.secondary .card-icon {
             background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-            box-shadow: 0 8px 24px -8px rgba(245, 158, 11, 0.5);
+            box-shadow: 0 4px 12px -4px rgba(245, 158, 11, 0.5);
         }
         
-        .card-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
+        .card-meta { display: flex; flex-direction: column; gap: 0.125rem; }
         
         .card-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             color: var(--text-tertiary);
         }
         
-        .script-card.primary .card-label {
-            color: var(--color-secondary);
-        }
-        
-        .script-card.secondary .card-label {
-            color: var(--color-accent-dark);
-        }
+        .script-card.primary .card-label { color: var(--color-secondary); }
+        .script-card.secondary .card-label { color: var(--color-accent-dark); }
         
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.125rem;
             font-weight: 700;
             color: var(--text-primary);
-            line-height: 1.3;
+            line-height: 1.2;
         }
         
         .card-description {
             color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
             flex: 1;
         }
         
         .card-features {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
         }
         
         .feature-tag {
             display: inline-flex;
             align-items: center;
-            gap: 0.375rem;
-            padding: 0.375rem 0.75rem;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
             background: var(--bg-tertiary);
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
             color: var(--text-secondary);
         }
         
         .feature-tag svg {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             color: var(--color-success);
         }
         
         .card-cta {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.5rem;
-            border-radius: var(--radius-lg);
-            font-size: 0.9375rem;
-            font-weight: 600;
-            transition: all var(--transition-fast);
-            text-align: center;
             justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.15s ease;
         }
         
         .script-card.primary .card-cta {
@@ -419,213 +328,49 @@
             color: white;
         }
         
-        .script-card.primary:hover .card-cta {
-            transform: translateX(4px);
-        }
-        
         .script-card.secondary .card-cta {
             background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
             color: white;
         }
         
-        .script-card.secondary:hover .card-cta {
-            transform: translateX(4px);
-        }
-        
         .card-cta svg {
-            width: 20px;
-            height: 20px;
-            transition: transform var(--transition-fast);
+            width: 16px;
+            height: 16px;
+            transition: transform 0.15s ease;
         }
         
         .script-card:hover .card-cta svg {
-            transform: translateX(4px);
+            transform: translateX(3px);
         }
         
-        /* ============================================
-           STATS SECTION
-           ============================================ */
-        .stats-section {
-            margin-top: 4rem;
-            padding: 3rem;
-            background: var(--bg-primary);
-            border-radius: var(--radius-2xl);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .stats-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        
-        .stats-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .stats-subtitle {
-            font-size: 1rem;
-            color: var(--text-tertiary);
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-xl);
-            transition: all var(--transition-fast);
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .stat-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--color-secondary);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-tertiary);
-            font-weight: 500;
-        }
-        
-        /* ============================================
-           FOOTER
-           ============================================ */
+        /* FOOTER */
         .footer {
             text-align: center;
-            padding: 2rem;
+            padding: 1rem;
             color: var(--text-tertiary);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
+            margin-top: auto;
         }
         
-        .footer-brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-brand img {
-            height: 24px;
-            width: auto;
-            opacity: 0.7;
-        }
-        
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .header {
-                padding: 0 1rem;
-            }
-            
-            .logo-divider,
-            .logo-text {
-                display: none;
-            }
-            
-            .header-badge {
-                padding: 0.375rem 0.75rem;
-                font-size: 0.65rem;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .hero {
-                padding: 2rem 0 3rem;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .scripts-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .card-content {
-                padding: 1.5rem;
-            }
-            
-            .stats-section {
-                padding: 2rem 1.5rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .stat-value {
-                font-size: 1.75rem;
-            }
+            .header { padding: 0 1rem; }
+            .logo-divider, .logo-text { display: none; }
+            .main { padding: 1rem; }
+            .scripts-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .hero-title { font-size: 1.5rem; }
+            .hero-subtitle { font-size: 0.875rem; }
+            .card-content { padding: 1.25rem; }
         }
-        
-        /* ============================================
-           ANIMATIONS
-           ============================================ */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-in {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.1s; opacity: 0; }
-        .delay-2 { animation-delay: 0.2s; opacity: 0; }
-        .delay-3 { animation-delay: 0.3s; opacity: 0; }
-        .delay-4 { animation-delay: 0.4s; opacity: 0; }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo">
                 <img src="amerben.png" alt="AmerBen Insurance" class="logo-image">
                 <div class="logo-divider"></div>
-                <div class="logo-text">
-                    <span class="logo-title">Agent Scripts</span>
-                    <span class="logo-subtitle">Professional Sales Playbooks</span>
-                </div>
+                <span class="logo-text">Agent Scripts</span>
             </div>
             <div class="header-badge">
                 <span class="pulse-dot"></span>
@@ -634,26 +379,15 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main">
         <div class="container">
-            <!-- Hero Section -->
             <section class="hero">
-                <div class="hero-badge animate-in delay-1">
-                    <span class="hero-badge-icon">📚</span>
-                    <span>Script Library v2.0</span>
-                </div>
-                <h1 class="hero-title animate-in delay-2">Master Your Sales<br>With Expert Scripts</h1>
-                <p class="hero-subtitle animate-in delay-3">
-                    Access our comprehensive collection of professionally crafted scripts 
-                    designed to maximize conversions and build lasting client relationships.
-                </p>
+                <h1 class="hero-title">Master Your Sales With Expert Scripts</h1>
+                <p class="hero-subtitle">Professional playbooks designed to maximize conversions and build client relationships.</p>
             </section>
 
-            <!-- Script Cards -->
             <div class="scripts-grid">
-                <!-- Live Transfer Script -->
-                <a href="framework.html" class="script-card primary animate-in delay-3">
+                <a href="framework.html" class="script-card primary">
                     <div class="card-gradient"></div>
                     <div class="card-content">
                         <div class="card-header">
@@ -663,41 +397,29 @@
                                 <h2 class="card-title">Live Transfer Script</h2>
                             </div>
                         </div>
-                        <p class="card-description">
-                            The complete 7-phase authority script for handling live transfer calls. 
-                            Master the art of building trust and closing deals from the first hello.
-                        </p>
+                        <p class="card-description">The complete 7-phase authority script for handling live transfer calls. Build trust and close deals from the first hello.</p>
                         <div class="card-features">
                             <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                7 Call Phases
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                7 Phases
                             </span>
                             <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                 Objection Handling
                             </span>
                             <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                 Goldilocks Close
                             </span>
                         </div>
                         <div class="card-cta">
                             <span>Open Script</span>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </div>
                     </div>
                 </a>
 
-                <!-- Pre-Closed Script -->
-                <a href="preclosed.html" class="script-card secondary animate-in delay-4">
+                <a href="preclosed.html" class="script-card secondary">
                     <div class="card-gradient"></div>
                     <div class="card-content">
                         <div class="card-header">
@@ -707,101 +429,34 @@
                                 <h2 class="card-title">Pre-Closed Script</h2>
                             </div>
                         </div>
-                        <p class="card-description">
-                            Your comprehensive guide for completing applications with pre-qualified leads. 
-                            Navigate health questions and secure the final signature with confidence.
-                        </p>
+                        <p class="card-description">Your comprehensive guide for completing applications with pre-qualified leads. Navigate health questions and secure the signature.</p>
                         <div class="card-features">
                             <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                 Application Flow
                             </span>
                             <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                 Health Questions
                             </span>
                             <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                 Carrier Selection
                             </span>
                         </div>
                         <div class="card-cta">
                             <span>Open Script</span>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <!-- Stats Section -->
-            <section class="stats-section animate-in delay-4">
-                <div class="stats-header">
-                    <h2 class="stats-title">Built for Success</h2>
-                    <p class="stats-subtitle">Everything you need to close more deals</p>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-icon">🎯</div>
-                        <div class="stat-value">2</div>
-                        <div class="stat-label">Complete Scripts</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">📈</div>
-                        <div class="stat-value">15+</div>
-                        <div class="stat-label">Call Phases</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">💡</div>
-                        <div class="stat-value">50+</div>
-                        <div class="stat-label">Pro Tips</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">🛡️</div>
-                        <div class="stat-value">100%</div>
-                        <div class="stat-label">Compliance Ready</div>
-                    </div>
-                </div>
-            </section>
+            <footer class="footer">
+                AmerBen Insurance • Professional Agent Training Resources
+            </footer>
         </div>
     </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-brand">
-            <img src="amerben.png" alt="AmerBen">
-            <span>AmerBen Insurance</span>
-        </div>
-        <p>Professional Agent Training Resources • Confidential</p>
-    </footer>
-
-    <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements that should animate on scroll
-        document.querySelectorAll('.stat-item').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
 </CodeContent>
