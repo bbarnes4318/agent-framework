@@ -3,1998 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Expense Application Completion Guide | Licensed Agent Playbook</title>
-    
-    <!-- Google Fonts -->
+    <title>Pre-Closed Application Guide | AmerBen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ============================================
-           CSS CUSTOM PROPERTIES (DESIGN TOKENS)
-           ============================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
         :root {
-            /* Colors - Light Mode */
-            --color-primary: #0f172a;
-            --color-primary-light: #1e293b;
-            --color-secondary: #0ea5e9;
-            --color-secondary-dark: #0284c7;
-            --color-accent: #f59e0b;
-            --color-accent-light: #fbbf24;
-            --color-success: #10b981;
-            --color-success-light: #34d399;
-            --color-warning: #f59e0b;
-            --color-danger: #ef4444;
-            --color-danger-light: #fca5a5;
-            
-            /* Backgrounds */
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
-            --bg-card: #ffffff;
-            --bg-code: #1e293b;
-            
-            /* Text */
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-tertiary: #64748b;
-            --text-inverse: #ffffff;
-            --text-code: #e2e8f0;
-            
-            /* Borders */
-            --border-light: #e2e8f0;
-            --border-medium: #cbd5e1;
-            --border-dark: #94a3b8;
-            
-            /* Shadows */
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            --shadow-glow: 0 0 40px -10px var(--color-secondary);
-            
-            /* Spacing */
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
-            --space-3xl: 4rem;
-            
-            /* Typography */
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-            
-            /* Sizing */
-            --max-width: 1400px;
-            --sidebar-width: 280px;
-            --header-height: 70px;
-            
-            /* Transitions */
-            --transition-fast: 150ms ease;
-            --transition-base: 250ms ease;
-            --transition-slow: 350ms ease;
-            
-            /* Border Radius */
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-            --radius-full: 9999px;
+            --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1; --slate-400: #94a3b8; --slate-500: #64748b;
+            --slate-600: #475569; --slate-700: #334155; --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --blue-50: #eff6ff; --blue-100: #dbeafe; --blue-400: #60a5fa;
+            --blue-500: #3b82f6; --blue-600: #2563eb; --blue-700: #1d4ed8;
+            --emerald-50: #ecfdf5; --emerald-100: #d1fae5; --emerald-500: #10b981;
+            --emerald-600: #059669; --emerald-700: #047857;
+            --amber-50: #fffbeb; --amber-100: #fef3c7; --amber-500: #f59e0b;
+            --amber-700: #b45309;
+            --red-50: #fef2f2; --red-100: #fee2e2; --red-500: #ef4444;
+            --red-600: #dc2626; --red-700: #b91c1c;
         }
         
-        /* Dark Mode */
-        [data-theme="dark"] {
-            --color-primary: #f8fafc;
-            --color-primary-light: #e2e8f0;
-            
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --bg-card: #1e293b;
-            --bg-code: #0f172a;
-            
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-tertiary: #94a3b8;
-            
-            --border-light: #334155;
-            --border-medium: #475569;
-            --border-dark: #64748b;
-            
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
-        }
-        
-        /* ============================================
-           RESET & BASE STYLES
-           ============================================ */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: calc(var(--header-height) + var(--space-xl));
-        }
-        
+        html, body { height: 100%; overflow: hidden; }
         body {
-            font-family: var(--font-sans);
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--slate-50);
+            color: var(--slate-900);
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* ============================================
-           TYPOGRAPHY
-           ============================================ */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--text-primary);
-        }
+        .app { display: flex; height: 100vh; width: 100%; overflow: hidden; }
         
-        h1 { font-size: clamp(2rem, 5vw, 3rem); }
-        h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
-        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
-        h4 { font-size: 1.125rem; }
-        
-        p {
-            color: var(--text-secondary);
-            margin-bottom: var(--space-md);
-        }
-        
-        a {
-            color: var(--color-secondary);
-            text-decoration: none;
-            transition: color var(--transition-fast);
-        }
-        
-        a:hover {
-            color: var(--color-secondary-dark);
-        }
-        
-        /* ============================================
-           LAYOUT
-           ============================================ */
-        .app-container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        /* ============================================
-           HEADER
-           ============================================ */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--header-height);
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border-light);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            padding: 0 var(--space-xl);
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.9);
-        }
-        
-        [data-theme="dark"] .header {
-            background: rgba(15, 23, 42, 0.9);
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-        
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .logo-text {
-            font-weight: 700;
-            font-size: 1.125rem;
-            color: var(--text-primary);
-        }
-        
-        .logo-badge {
-            font-size: 0.625rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.5rem;
-            background: var(--color-accent);
-            color: var(--color-primary);
-            border-radius: var(--radius-full);
-        }
-        
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            padding: 0.625rem 1.25rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            border-radius: var(--radius-md);
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-        
-        .btn-primary {
-            background: var(--color-secondary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: var(--color-secondary-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border-light);
-        }
-        
-        .btn-ghost:hover {
-            background: var(--bg-secondary);
-            border-color: var(--border-medium);
-        }
-        
-        .btn-icon {
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            border-radius: var(--radius-md);
-        }
-        
-        .theme-toggle {
-            position: relative;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-md);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-light);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition-fast);
-        }
-        
-        .theme-toggle:hover {
-            background: var(--bg-tertiary);
-        }
-        
-        .theme-toggle .sun,
-        .theme-toggle .moon {
-            position: absolute;
-            transition: all var(--transition-base);
-        }
-        
-        .theme-toggle .sun { opacity: 1; }
-        .theme-toggle .moon { opacity: 0; }
-        
-        [data-theme="dark"] .theme-toggle .sun { opacity: 0; }
-        [data-theme="dark"] .theme-toggle .moon { opacity: 1; }
-        
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-md);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-light);
-            cursor: pointer;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-        }
-        
-        .menu-toggle span {
-            width: 18px;
-            height: 2px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: all var(--transition-fast);
-        }
-        
-        /* ============================================
-           SIDEBAR NAVIGATION
-           ============================================ */
+        /* SIDEBAR */
         .sidebar {
-            position: fixed;
-            top: var(--header-height);
-            left: 0;
-            bottom: 0;
-            width: var(--sidebar-width);
-            background: var(--bg-secondary);
-            border-right: 1px solid var(--border-light);
-            overflow-y: auto;
-            padding: var(--space-xl) 0;
-            z-index: 100;
-            transition: transform var(--transition-base);
-        }
-        
-        .sidebar-header {
-            padding: 0 var(--space-lg) var(--space-lg);
-            border-bottom: 1px solid var(--border-light);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .sidebar-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-tertiary);
-        }
-        
-        .nav-section {
-            margin-bottom: var(--space-lg);
-        }
-        
-        .nav-section-title {
-            font-size: 0.6875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-tertiary);
-            padding: 0 var(--space-lg);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: 0.625rem var(--space-lg);
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all var(--transition-fast);
-            border-left: 3px solid transparent;
-        }
-        
-        .nav-link:hover {
-            color: var(--text-primary);
-            background: var(--bg-tertiary);
-        }
-        
-        .nav-link.active {
-            color: var(--color-secondary);
-            background: rgba(14, 165, 233, 0.1);
-            border-left-color: var(--color-secondary);
-        }
-        
-        .nav-link-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 22px;
-            height: 22px;
-            font-size: 0.6875rem;
-            font-weight: 600;
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-sm);
-            color: var(--text-tertiary);
-        }
-        
-        .nav-link.active .nav-link-number {
-            background: var(--color-secondary);
-            color: white;
-        }
-        
-        /* Progress Indicator */
-        .progress-container {
-            padding: var(--space-lg);
-            border-top: 1px solid var(--border-light);
-            margin-top: auto;
-        }
-        
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
-            color: var(--text-tertiary);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .progress-bar {
-            height: 6px;
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-full);
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
-            border-radius: var(--radius-full);
-            transition: width var(--transition-slow);
-        }
-        
-        /* ============================================
-           MAIN CONTENT
-           ============================================ */
-        .main-content {
-            flex: 1;
-            margin-left: var(--sidebar-width);
-            margin-top: var(--header-height);
-            padding: var(--space-3xl);
-            max-width: calc(100% - var(--sidebar-width));
-        }
-        
-        .content-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        /* ============================================
-           HERO SECTION
-           ============================================ */
-        .hero {
-            text-align: center;
-            padding: var(--space-3xl) 0;
-            margin-bottom: var(--space-3xl);
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: 0.5rem 1rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-full);
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .hero-badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--color-success);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .hero-title {
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: var(--space-lg);
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--color-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto var(--space-xl);
-        }
-        
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-2xl);
-            flex-wrap: wrap;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-secondary);
-        }
-        
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-tertiary);
-        }
-        
-        /* ============================================
-           CALL FLOW DIAGRAM
-           ============================================ */
-        .flow-diagram {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            margin-bottom: var(--space-3xl);
-        }
-        
-        .flow-diagram-title {
-            text-align: center;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .flow-steps {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-        
-        .flow-step {
+            width: 220px;
+            background: white;
+            border-right: 1px solid var(--slate-200);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-lg);
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            min-width: 140px;
-            transition: all var(--transition-fast);
+            flex-shrink: 0;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.03);
         }
-        
-        .flow-step:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .flow-step.highlight {
-            border-color: var(--color-secondary);
-            background: rgba(14, 165, 233, 0.05);
-        }
-        
-        .flow-step-icon {
-            width: 48px;
+        .sidebar-header {
             height: 48px;
-            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            background: var(--bg-tertiary);
-        }
-        
-        .flow-step.highlight .flow-step-icon {
-            background: var(--color-secondary);
+            padding: 0 16px;
+            background: var(--slate-900);
             color: white;
-        }
-        
-        .flow-step-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-tertiary);
-        }
-        
-        .flow-step.highlight .flow-step-label {
-            color: var(--color-secondary);
-        }
-        
-        .flow-step-title {
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-align: center;
-        }
-        
-        .flow-arrow {
-            font-size: 1.5rem;
-            color: var(--text-tertiary);
-        }
-        
-        /* ============================================
-           SECTION STYLES
-           ============================================ */
-        .section {
-            margin-bottom: var(--space-3xl);
-            scroll-margin-top: calc(var(--header-height) + var(--space-xl));
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-xl);
-            padding-bottom: var(--space-lg);
-            border-bottom: 1px solid var(--border-light);
-        }
-        
-        .section-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-            border-radius: var(--radius-lg);
+            gap: 8px;
             flex-shrink: 0;
         }
+        .sidebar-header svg { color: var(--blue-400); }
+        .sidebar-header span { font-weight: 700; font-size: 14px; letter-spacing: -0.3px; }
         
-        .section-info {
-            flex: 1;
+        .sidebar-content { flex: 1; overflow-y: auto; padding: 12px 8px; }
+        .sidebar-section-title {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; color: var(--slate-400); padding: 8px 8px 4px; margin-top: 8px;
+        }
+        .sidebar-section-title:first-child { margin-top: 0; }
+        
+        .phase-item {
+            display: flex; align-items: center; gap: 8px;
+            padding: 6px 8px; border-radius: 6px; font-size: 12px;
+            font-weight: 500; color: var(--slate-400); transition: all 0.15s;
+            cursor: pointer;
+        }
+        .phase-item:hover { background: var(--slate-50); }
+        .phase-item.active { background: var(--blue-50); color: var(--blue-700); }
+        .phase-item.completed { color: var(--emerald-600); }
+        .phase-item svg { width: 12px; height: 12px; }
+        
+        .quick-handle {
+            width: 100%; text-align: left;
+            padding: 8px; margin-bottom: 4px;
+            background: var(--slate-50); border: 1px solid var(--slate-200);
+            border-radius: 6px; font-size: 11px; font-weight: 600;
+            color: var(--slate-600); cursor: pointer; transition: all 0.15s;
+        }
+        .quick-handle:hover { background: var(--slate-100); border-color: var(--slate-300); }
+        
+        .sidebar-footer {
+            padding: 8px; border-top: 1px solid var(--slate-100);
+            background: var(--slate-50); flex-shrink: 0;
+        }
+        .reset-btn {
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            width: 100%; padding: 8px; background: transparent; border: none;
+            font-size: 10px; font-weight: 700; color: var(--slate-400);
+            cursor: pointer; transition: color 0.15s;
+        }
+        .reset-btn:hover { color: var(--slate-600); }
+        .reset-btn svg { width: 12px; height: 12px; }
+        
+        /* MAIN CONTENT */
+        .main { flex: 1; display: flex; flex-direction: column; height: 100%; position: relative; }
+        
+        .main-header {
+            height: 48px; background: white; border-bottom: 1px solid var(--slate-200);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 16px; flex-shrink: 0;
+        }
+        .main-header h2 { font-size: 16px; font-weight: 700; color: var(--slate-800); }
+        .progress-info { display: flex; align-items: center; gap: 12px; }
+        .step-counter { font-size: 10px; font-weight: 700; color: var(--slate-400); text-transform: uppercase; }
+        .progress-bar { width: 80px; height: 4px; background: var(--slate-100); border-radius: 999px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--blue-600); transition: width 0.5s; }
+        
+        .content-area {
+            flex: 1; overflow-y: auto; padding: 16px;
+            scrollbar-width: none; -ms-overflow-style: none;
+        }
+        .content-area::-webkit-scrollbar { display: none; }
+        .content-wrapper { max-width: 800px; margin: 0 auto; }
+        
+        .main-footer {
+            height: 56px; background: white; border-top: 1px solid var(--slate-200);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 16px; flex-shrink: 0;
         }
         
-        .section-title {
-            margin-bottom: var(--space-xs);
+        .nav-btn {
+            display: flex; align-items: center; gap: 4px;
+            padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
+            border: none; cursor: pointer; transition: all 0.15s;
         }
+        .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .nav-btn.secondary { background: transparent; color: var(--slate-600); }
+        .nav-btn.secondary:hover:not(:disabled) { background: var(--slate-100); }
+        .nav-btn.primary {
+            background: var(--blue-600); color: white;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+        }
+        .nav-btn.primary:hover:not(:disabled) { background: var(--blue-700); transform: translateY(-1px); }
+        .nav-btn.success { background: var(--emerald-600); color: white; }
+        .nav-btn.success:hover { background: var(--emerald-700); }
+        .nav-btn svg { width: 16px; height: 16px; }
         
-        .section-subtitle {
-            font-size: 0.9375rem;
-            color: var(--text-tertiary);
-        }
+        /* SCREEN CONTENT */
+        .screen { display: none; animation: fadeIn 0.3s ease; }
+        .screen.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         
-        .section-time {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            padding: 0.25rem 0.75rem;
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-secondary);
+        /* CARDS */
+        .script-card {
+            background: white; border-radius: 8px; padding: 12px;
+            margin-bottom: 12px; position: relative; border: 1px solid var(--slate-200);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
+        .script-card.warning { border-left: 4px solid var(--amber-500); background: var(--amber-50); }
+        .script-card.success { border-left: 4px solid var(--emerald-500); background: var(--emerald-50); }
+        .script-card.critical { border-left: 4px solid var(--red-600); background: var(--red-50); }
         
-        /* ============================================
-           CARDS
-           ============================================ */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            margin-bottom: var(--space-lg);
-            transition: all var(--transition-fast);
+        .script-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .script-title {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; color: var(--slate-500);
         }
-        
-        .card:hover {
-            box-shadow: var(--shadow-md);
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: var(--space-lg);
-        }
-        
-        .card-title {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        
-        .card-icon {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-        }
-        
-        /* ============================================
-           SCRIPT BLOCKS
-           ============================================ */
-        .script-block {
-            position: relative;
-            background: var(--bg-code);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            margin-bottom: var(--space-lg);
-            overflow: hidden;
-        }
-        
-        .script-block::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
-        }
-        
-        .script-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: var(--space-md);
-        }
-        
-        .script-label {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-secondary);
-        }
-        
-        .script-label-icon {
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(14, 165, 233, 0.2);
-            border-radius: var(--radius-sm);
-        }
+        .script-card.warning .script-title { color: var(--amber-700); }
+        .script-card.critical .script-title { color: var(--red-700); }
         
         .copy-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            padding: 0.375rem 0.75rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: var(--radius-md);
-            color: var(--text-code);
-            font-size: 0.75rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all var(--transition-fast);
+            display: flex; align-items: center; gap: 4px;
+            padding: 4px 8px; background: transparent; border: none;
+            font-size: 10px; color: var(--slate-400); cursor: pointer;
+            border-radius: 4px; transition: all 0.15s;
         }
+        .copy-btn:hover { background: var(--slate-100); color: var(--blue-600); }
+        .copy-btn.copied { color: var(--emerald-600); }
+        .copy-btn svg { width: 12px; height: 12px; }
         
-        .copy-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
+        .script-text { font-size: 15px; line-height: 1.6; color: var(--slate-800); font-weight: 500; }
+        .script-text em { color: var(--slate-400); font-style: italic; font-size: 13px; }
+        .script-text strong { color: var(--slate-900); }
+        
+        .section-title { font-size: 18px; font-weight: 700; color: var(--slate-800); margin-bottom: 12px; }
+        
+        /* CHECKLIST */
+        .checklist { display: flex; flex-direction: column; gap: 6px; }
+        .check-item {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 10px; background: var(--slate-50); border: 1px solid var(--slate-200);
+            border-radius: 8px; cursor: pointer; transition: all 0.15s;
         }
+        .check-item:hover { border-color: var(--blue-300); }
+        .check-item.checked { background: var(--blue-50); border-color: var(--blue-200); }
+        .check-item input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--blue-600); }
+        .check-item span { font-size: 14px; font-weight: 500; color: var(--slate-800); line-height: 1.4; }
         
-        .copy-btn.copied {
-            background: var(--color-success);
-            border-color: var(--color-success);
-            color: white;
-        }
-        
-        .script-text {
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--text-code);
-        }
-        
-        .script-text strong {
-            color: var(--color-accent);
-            font-weight: 600;
-        }
-        
-        .script-text em {
-            color: var(--text-tertiary);
-            font-style: normal;
-            font-size: 0.875rem;
-        }
-        
-        /* ============================================
-           TABLES
-           ============================================ */
-        .table-container {
-            overflow-x: auto;
-            margin-bottom: var(--space-lg);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        th, td {
-            padding: var(--space-md) var(--space-lg);
-            text-align: left;
-            border-bottom: 1px solid var(--border-light);
-        }
-        
-        th {
-            background: var(--bg-secondary);
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-tertiary);
-        }
-        
-        td {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        tr:hover td {
-            background: var(--bg-secondary);
-        }
-        
-        .table-highlight {
-            color: var(--color-secondary);
-            font-weight: 500;
-        }
-        
-        /* ============================================
-           CHECKLIST
-           ============================================ */
-        .checklist {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-        
-        .checklist-item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-md);
-            padding: var(--space-md);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-        
-        .checklist-item:hover {
-            border-color: var(--color-secondary);
-        }
-        
-        .checklist-item.checked {
-            background: rgba(16, 185, 129, 0.1);
-            border-color: var(--color-success);
-        }
-        
-        .checklist-checkbox {
-            width: 22px;
-            height: 22px;
-            border: 2px solid var(--border-medium);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: all var(--transition-fast);
-        }
-        
-        .checklist-item.checked .checklist-checkbox {
-            background: var(--color-success);
-            border-color: var(--color-success);
-            color: white;
-        }
-        
-        .checklist-content {
-            flex: 1;
-        }
-        
-        .checklist-title {
-            font-weight: 600;
-            font-size: 0.9375rem;
-            margin-bottom: 0.125rem;
-        }
-        
-        .checklist-desc {
-            font-size: 0.8125rem;
-            color: var(--text-tertiary);
-        }
-        
-        /* ============================================
-           ALERTS & CALLOUTS
-           ============================================ */
+        /* ALERT */
         .alert {
-            display: flex;
-            gap: var(--space-md);
-            padding: var(--space-lg);
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--space-lg);
+            display: flex; gap: 12px; padding: 12px;
+            border-radius: 8px; margin-bottom: 12px;
         }
-        
         .alert-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-sm);
-            flex-shrink: 0;
-            font-size: 0.875rem;
+            width: 20px; height: 20px; border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; flex-shrink: 0;
         }
+        .alert.danger { background: var(--red-50); border: 1px solid var(--red-100); }
+        .alert.danger .alert-icon { background: var(--red-500); color: white; }
+        .alert.danger .alert-title { color: var(--red-700); }
+        .alert.success { background: var(--emerald-50); border: 1px solid var(--emerald-100); }
+        .alert.success .alert-icon { background: var(--emerald-500); color: white; }
+        .alert.info { background: var(--blue-50); border: 1px solid var(--blue-100); }
+        .alert.info .alert-icon { background: var(--blue-500); color: white; }
+        .alert.warning { background: var(--amber-50); border: 1px solid var(--amber-100); }
+        .alert.warning .alert-icon { background: var(--amber-500); color: white; }
+        .alert-content { flex: 1; }
+        .alert-title { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+        .alert-text { font-size: 13px; color: var(--slate-600); line-height: 1.5; }
         
-        .alert-content {
-            flex: 1;
+        /* SETUP SCREEN */
+        .setup-screen {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; min-height: 60vh; text-align: center;
         }
+        .setup-screen h1 { font-size: 24px; font-weight: 700; color: var(--slate-800); margin-bottom: 8px; }
+        .setup-screen p { font-size: 14px; color: var(--slate-500); margin-bottom: 24px; max-width: 400px; }
         
-        .alert-title {
-            font-weight: 600;
-            font-size: 0.9375rem;
-            margin-bottom: 0.25rem;
+        .start-btn {
+            display: flex; align-items: center; gap: 8px;
+            padding: 16px 32px; background: var(--blue-600); color: white;
+            border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
+            cursor: pointer; transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.3);
         }
+        .start-btn:hover { background: var(--blue-700); transform: translateY(-2px); }
         
-        .alert-text {
-            font-size: 0.875rem;
-            margin-bottom: 0;
-        }
-        
-        .alert-warning {
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-        
-        .alert-warning .alert-icon {
-            background: var(--color-warning);
-            color: white;
-        }
-        
-        .alert-warning .alert-title {
-            color: var(--color-warning);
-        }
-        
-        .alert-danger {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-        
-        .alert-danger .alert-icon {
-            background: var(--color-danger);
-            color: white;
-        }
-        
-        .alert-danger .alert-title {
-            color: var(--color-danger);
-        }
-        
-        .alert-success {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-        
-        .alert-success .alert-icon {
-            background: var(--color-success);
-            color: white;
-        }
-        
-        .alert-success .alert-title {
-            color: var(--color-success);
-        }
-        
-        .alert-info {
-            background: rgba(14, 165, 233, 0.1);
-            border: 1px solid rgba(14, 165, 233, 0.3);
-        }
-        
-        .alert-info .alert-icon {
-            background: var(--color-secondary);
-            color: white;
-        }
-        
-        .alert-info .alert-title {
-            color: var(--color-secondary);
-        }
-        
-        /* ============================================
-           KEY POINT BOX
-           ============================================ */
         .key-point {
-            position: relative;
-            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            margin: var(--space-2xl) 0;
-            text-align: center;
+            background: linear-gradient(135deg, var(--slate-100), var(--slate-50));
+            border: 1px solid var(--slate-200); border-radius: 12px;
+            padding: 20px; text-align: center; margin: 16px 0;
         }
+        .key-point-label {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; color: var(--amber-600); margin-bottom: 8px;
+        }
+        .key-point-text { font-size: 16px; font-weight: 600; color: var(--slate-800); line-height: 1.5; }
         
-        .key-point::before {
-            content: '★';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background: var(--color-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.875rem;
+        /* QUICK REF GRID */
+        .ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 12px; }
+        .ref-card {
+            background: white; border: 1px solid var(--slate-200);
+            border-radius: 8px; padding: 12px; border-top: 3px solid var(--blue-500);
         }
+        .ref-card.warning { border-top-color: var(--amber-500); }
+        .ref-card-title { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--slate-500); margin-bottom: 8px; }
+        .ref-card p { font-size: 13px; color: var(--slate-600); margin-bottom: 4px; }
         
-        .key-point-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-accent);
-            margin-bottom: var(--space-md);
+        /* OBJECTION OVERLAY */
+        .overlay {
+            position: fixed; top: 0; right: 0; bottom: 0; width: 320px;
+            background: white; box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+            border-left: 1px solid var(--slate-200); z-index: 100;
+            display: none; flex-direction: column; animation: slideIn 0.2s ease;
         }
+        .overlay.active { display: flex; }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
         
-        .key-point-text {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0;
+        .overlay-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px; border-bottom: 1px solid var(--slate-100);
         }
+        .overlay-header h3 { font-size: 16px; font-weight: 700; }
+        .close-btn { background: none; border: none; cursor: pointer; color: var(--slate-400); padding: 4px; }
+        .close-btn:hover { color: var(--slate-600); }
         
-        /* ============================================
-           ACCORDION
-           ============================================ */
-        .accordion {
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            margin-bottom: var(--space-lg);
+        .overlay-content { flex: 1; padding: 16px; overflow-y: auto; }
+        .objection-label {
+            padding: 12px; background: var(--amber-50); border: 1px solid var(--amber-100);
+            border-radius: 8px; margin-bottom: 12px;
         }
+        .objection-label-title { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--amber-700); margin-bottom: 4px; }
+        .objection-label-text { font-size: 14px; font-weight: 600; color: var(--slate-800); }
         
-        .accordion-item {
-            border-bottom: 1px solid var(--border-light);
+        .response-box {
+            background: var(--slate-900); border-radius: 8px; padding: 16px;
         }
-        
-        .accordion-item:last-child {
-            border-bottom: none;
-        }
-        
-        .accordion-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: var(--space-lg);
-            background: var(--bg-card);
-            cursor: pointer;
-            transition: background var(--transition-fast);
-        }
-        
-        .accordion-header:hover {
-            background: var(--bg-secondary);
-        }
-        
-        .accordion-header-content {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-        
-        .accordion-icon {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-tertiary);
-            border-radius: var(--radius-md);
-        }
-        
-        .accordion-title {
-            font-weight: 600;
-            font-size: 0.9375rem;
-        }
-        
-        .accordion-arrow {
-            transition: transform var(--transition-fast);
-        }
-        
-        .accordion-item.active .accordion-arrow {
-            transform: rotate(180deg);
-        }
-        
-        .accordion-body {
-            padding: 0 var(--space-lg) var(--space-lg);
-            display: none;
-        }
-        
-        .accordion-item.active .accordion-body {
-            display: block;
-        }
-        
-        /* ============================================
-           QUICK REFERENCE CARDS
-           ============================================ */
-        .quick-ref-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-lg);
-            margin-bottom: var(--space-xl);
-        }
-        
-        .quick-ref-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .quick-ref-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-        }
-        
-        .quick-ref-card.primary::before {
-            background: var(--color-secondary);
-        }
-        
-        .quick-ref-card.success::before {
-            background: var(--color-success);
-        }
-        
-        .quick-ref-card.warning::before {
-            background: var(--color-warning);
-        }
-        
-        .quick-ref-card.danger::before {
-            background: var(--color-danger);
-        }
-        
-        .quick-ref-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-tertiary);
-            margin-bottom: var(--space-md);
-        }
-        
-        .quick-ref-content {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        
-        /* ============================================
-           TIME INDICATOR
-           ============================================ */
-        .time-indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-md);
-            padding: var(--space-lg);
-            background: var(--bg-secondary);
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--space-xl);
-        }
-        
-        .time-block {
-            text-align: center;
-        }
-        
-        .time-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-secondary);
-        }
-        
-        .time-label {
-            font-size: 0.75rem;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .time-divider {
-            width: 1px;
-            height: 40px;
-            background: var(--border-light);
-        }
-        
-        /* ============================================
-           FOOTER
-           ============================================ */
-        .footer {
-            margin-top: var(--space-3xl);
-            padding-top: var(--space-2xl);
-            border-top: 1px solid var(--border-light);
-            text-align: center;
-        }
-        
-        .footer-quote {
-            font-size: 1.125rem;
-            font-style: italic;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto var(--space-lg);
-        }
-        
-        .footer-meta {
-            font-size: 0.75rem;
-            color: var(--text-tertiary);
-        }
-        
-        /* ============================================
-           PRINT STYLES
-           ============================================ */
-        @media print {
-            .header,
-            .sidebar,
-            .copy-btn,
-            .theme-toggle,
-            .menu-toggle {
-                display: none !important;
-            }
-            
-            .main-content {
-                margin-left: 0;
-                margin-top: 0;
-                max-width: 100%;
-                padding: 0;
-            }
-            
-            .script-block {
-                background: #f5f5f5 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .section {
-                page-break-inside: avoid;
-            }
-        }
-        
-        /* ============================================
-           RESPONSIVE STYLES
-           ============================================ */
-        @media (max-width: 1024px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-            
-            .sidebar.open {
-                transform: translateX(0);
-            }
-            
-            .main-content {
-                margin-left: 0;
-                max-width: 100%;
-            }
-            
-            .menu-toggle {
-                display: flex;
-            }
-        }
+        .response-box-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .response-box-title { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--blue-400); }
+        .response-box p { font-size: 14px; color: var(--slate-100); line-height: 1.6; }
         
         @media (max-width: 768px) {
-            :root {
-                --space-xl: 1.5rem;
-                --space-2xl: 2rem;
-                --space-3xl: 2.5rem;
-            }
-            
-            .main-content {
-                padding: var(--space-xl);
-            }
-            
-            .hero-stats {
-                gap: var(--space-xl);
-            }
-            
-            .flow-steps {
-                flex-direction: column;
-            }
-            
-            .flow-arrow {
-                transform: rotate(90deg);
-            }
-            
-            .section-header {
-                flex-direction: column;
-            }
-            
-            .quick-ref-grid {
-                grid-template-columns: 1fr;
-            }
+            .sidebar { display: none; }
+            .ref-grid { grid-template-columns: 1fr; }
         }
-        
-        @media (max-width: 480px) {
-            .header {
-                padding: 0 var(--space-md);
-            }
-            
-            .logo-text {
-                display: none;
-            }
-            
-            .btn span {
-                display: none;
-            }
-            
-            .time-indicator {
-                flex-wrap: wrap;
-            }
-        }
-        
-        /* ============================================
-           ANIMATIONS
-           ============================================ */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-10px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        .section {
-            animation: fadeIn 0.5s ease forwards;
-        }
-        
-        .nav-link {
-            animation: slideIn 0.3s ease forwards;
-        }
-        
-        /* ============================================
-           UTILITIES
-           ============================================ */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        .text-center { text-align: center; }
-        .text-success { color: var(--color-success); }
-        .text-warning { color: var(--color-warning); }
-        .text-danger { color: var(--color-danger); }
-        .text-secondary-color { color: var(--color-secondary); }
-        
-        .mt-sm { margin-top: var(--space-sm); }
-        .mt-md { margin-top: var(--space-md); }
-        .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); }
-        .mb-md { margin-bottom: var(--space-md); }
-        .mb-lg { margin-bottom: var(--space-lg); }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-                    <img src="amerben.png" alt="AmerBen" style="height: 50px; width: auto; object-fit: contain;">
-                </a>
-                <span class="logo-text">Pre-Closed Application Guide</span>
-                <span class="logo-badge">Licensed Agent</span>
-            </div>
-            
-            <div class="header-actions">
-                <a href="index.html" class="btn btn-ghost" style="text-decoration: none;">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                    </svg>
-                    <span>Home</span>
-                </a>
-                
-                <button class="btn btn-ghost" onclick="window.print()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
-                        <rect x="6" y="14" width="12" height="8"/>
-                    </svg>
-                    <span>Print</span>
-                </button>
-                
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"/>
-                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                    </svg>
-                    <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-                    </svg>
-                </button>
-                
-                <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </header>
-    
-    <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar" id="sidebar">
+    <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
             <div class="sidebar-header">
-                <div class="sidebar-title">Application Guide</div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>AmerBen PRE-CLOSE</span>
             </div>
             
-            <nav>
-                <div class="nav-section">
-                    <div class="nav-section-title">Getting Started</div>
-                    <a href="#your-role" class="nav-link active">
-                        <span class="nav-link-number">0</span>
-                        Your Role
-                    </a>
-                    <a href="#call-flow" class="nav-link">
-                        <span class="nav-link-number">→</span>
-                        Call Flow
-                    </a>
-                </div>
+            <div class="sidebar-content">
+                <div class="sidebar-section-title">Application Progress</div>
+                <div id="phaseList"></div>
                 
-                <div class="nav-section">
-                    <div class="nav-section-title">Script Phases</div>
-                    <a href="#phase-1" class="nav-link">
-                        <span class="nav-link-number">1</span>
-                        The Pickup
-                    </a>
-                    <a href="#phase-2" class="nav-link">
-                        <span class="nav-link-number">2</span>
-                        Confirm Details
-                    </a>
-                    <a href="#phase-3" class="nav-link">
-                        <span class="nav-link-number">3</span>
-                        Application
-                    </a>
-                    <a href="#phase-4" class="nav-link">
-                        <span class="nav-link-number">4</span>
-                        Payment Setup
-                    </a>
-                    <a href="#phase-5" class="nav-link">
-                        <span class="nav-link-number">5</span>
-                        Disclosures
-                    </a>
-                    <a href="#phase-6" class="nav-link">
-                        <span class="nav-link-number">6</span>
-                        Wrap-Up
-                    </a>
-                </div>
-                
-                <div class="nav-section">
-                    <div class="nav-section-title">Reference</div>
-                    <a href="#handling-issues" class="nav-link">
-                        <span class="nav-link-number">⚡</span>
-                        Handling Issues
-                    </a>
-                    <a href="#compliance" class="nav-link">
-                        <span class="nav-link-number">⚠</span>
-                        Compliance
-                    </a>
-                    <a href="#quick-reference" class="nav-link">
-                        <span class="nav-link-number">📋</span>
-                        Quick Reference
-                    </a>
-                </div>
-            </nav>
+                <div class="sidebar-section-title">Quick Handles</div>
+                <button class="quick-handle" onclick="showObjection(0)">Customer Confused</button>
+                <button class="quick-handle" onclick="showObjection(1)">Second Thoughts</button>
+                <button class="quick-handle" onclick="showObjection(2)">Questions Legitimacy</button>
+                <button class="quick-handle" onclick="showObjection(3)">Wants to Change Coverage</button>
+            </div>
             
-            <div class="progress-container">
-                <div class="progress-label">
-                    <span>Progress</span>
-                    <span id="progress-percent">0%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
-                </div>
+            <div class="sidebar-footer">
+                <button class="reset-btn" onclick="resetApp()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 4v6h6M23 20v-6h-6"/>
+                        <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/>
+                    </svg>
+                    Reset Application
+                </button>
             </div>
         </aside>
         
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="content-wrapper">
-                
-                <!-- Hero Section -->
-                <section class="hero">
-                    <div class="hero-badge">
-                        <span class="hero-badge-dot"></span>
-                        Licensed Agent Playbook
+        <!-- MAIN CONTENT -->
+        <main class="main">
+            <header class="main-header">
+                <h2 id="currentPhaseTitle">Getting Started</h2>
+                <div class="progress-info">
+                    <span class="step-counter" id="stepCounter">Step 1 of 8</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 12.5%"></div>
                     </div>
-                    <h1 class="hero-title">Application Completion Guide</h1>
-                    <p class="hero-subtitle">The sale is already made. Your job is to finish it—not lose it. This guide will help you complete applications efficiently and professionally.</p>
-                    
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">5-8</div>
-                            <div class="stat-label">Target Minutes</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">6</div>
-                            <div class="stat-label">Simple Phases</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">100%</div>
-                            <div class="stat-label">Compliance</div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Call Flow Diagram -->
-                <section class="flow-diagram" id="call-flow">
-                    <h3 class="flow-diagram-title">Call Flow Overview</h3>
-                    <div class="flow-steps">
-                        <div class="flow-step">
-                            <div class="flow-step-icon">📞</div>
-                            <div class="flow-step-label">Step 1</div>
-                            <div class="flow-step-title">Call Center<br>Dials Prospect</div>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step">
-                            <div class="flow-step-icon">✅</div>
-                            <div class="flow-step-label">Step 2</div>
-                            <div class="flow-step-title">Qualifier<br>Verifies Info</div>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step">
-                            <div class="flow-step-icon">💬</div>
-                            <div class="flow-step-label">Step 3</div>
-                            <div class="flow-step-title">Options<br>Presented</div>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step highlight">
-                            <div class="flow-step-icon">📋</div>
-                            <div class="flow-step-label">Your Role</div>
-                            <div class="flow-step-title">Complete<br>Application</div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Your Role Section -->
-                <section class="section" id="your-role">
-                    <div class="section-header">
-                        <div class="section-number">★</div>
-                        <div class="section-info">
-                            <h2 class="section-title">Understanding Your Role</h2>
-                            <p class="section-subtitle">This is NOT a sales call. The selling is DONE.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-success">
-                        <div class="alert-icon">✓</div>
-                        <div class="alert-content">
-                            <div class="alert-title">What's Already Been Done</div>
-                            <p class="alert-text">The call center has explained coverage, discussed benefits, collected information, presented pricing, and the customer has agreed to proceed.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">
-                                <span class="card-icon">🎯</span>
-                                Your Job
-                            </h4>
-                        </div>
-                        <div class="checklist">
-                            <div class="checklist-item" onclick="toggleCheck(this)">
-                                <div class="checklist-checkbox">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                        <path d="M20 6L9 17l-5-5"/>
-                                    </svg>
-                                </div>
-                                <div class="checklist-content">
-                                    <div class="checklist-title">Verify key details</div>
-                                    <div class="checklist-desc">Confirm coverage amount, premium, and beneficiary</div>
-                                </div>
-                            </div>
-                            <div class="checklist-item" onclick="toggleCheck(this)">
-                                <div class="checklist-checkbox">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                        <path d="M20 6L9 17l-5-5"/>
-                                    </svg>
-                                </div>
-                                <div class="checklist-content">
-                                    <div class="checklist-title">Complete application</div>
-                                    <div class="checklist-desc">Collect all required information for the carrier</div>
-                                </div>
-                            </div>
-                            <div class="checklist-item" onclick="toggleCheck(this)">
-                                <div class="checklist-checkbox">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                        <path d="M20 6L9 17l-5-5"/>
-                                    </svg>
-                                </div>
-                                <div class="checklist-content">
-                                    <div class="checklist-title">Get signature/authorization</div>
-                                    <div class="checklist-desc">Obtain clear verbal authorization with date/time</div>
-                                </div>
-                            </div>
-                            <div class="checklist-item" onclick="toggleCheck(this)">
-                                <div class="checklist-checkbox">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                        <path d="M20 6L9 17l-5-5"/>
-                                    </svg>
-                                </div>
-                                <div class="checklist-content">
-                                    <div class="checklist-title">Lock in coverage</div>
-                                    <div class="checklist-desc">Submit application and confirm everything is complete</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-danger">
-                        <div class="alert-icon">✕</div>
-                        <div class="alert-content">
-                            <div class="alert-title">The #1 Way Agents Kill These Deals</div>
-                            <p class="alert-text"><strong>Starting over.</strong> The customer just spent 15-20 minutes with your call center. If you say "So tell me, what made you interested in final expense today?"—the deal is DEAD. They'll hang up.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="key-point">
-                        <div class="key-point-title">Remember</div>
-                        <p class="key-point-text">You are the FINISHER, not the STARTER.<br>Confirm → Complete → Congratulate</p>
-                    </div>
-                </section>
-                
-                <!-- Phase 1: The Pickup -->
-                <section class="section" id="phase-1">
-                    <div class="section-header">
-                        <div class="section-number">1</div>
-                        <div class="section-info">
-                            <h2 class="section-title">The Pickup</h2>
-                            <p class="section-subtitle">Make them feel this is ONE conversation, not a new call.</p>
-                        </div>
-                        <span class="section-time">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            20 seconds
-                        </span>
-                    </div>
-                    
-                    <div class="script-block">
-                        <div class="script-header">
-                            <div class="script-label">
-                                <span class="script-label-icon">💬</span>
-                                Standard Opening Script
-                            </div>
-                            <button class="copy-btn" onclick="copyScript(this)">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                </div>
+            </header>
+            
+            <div class="content-area">
+                <div class="content-wrapper">
+                    <!-- SCREEN 0: SETUP -->
+                    <div class="screen active" data-screen="0">
+                        <div class="setup-screen">
+                            <h1>Pre-Closed Application Guide</h1>
+                            <p>The sale is already made. Your job is to finish it—not lose it. This guide will walk you through completing the application efficiently.</p>
+                            <button class="start-btn" onclick="nextStep()">
+                                Start Application
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
                                 </svg>
-                                Copy
                             </button>
-                        </div>
-                        <p class="script-text">
-                            <strong>"Hi, [First Name]?"</strong><br><br>
-                            <em>[Wait for yes]</em><br><br>
-                            <strong>"Hey [First Name], this is [Your Name]—I'm the licensed agent that's going to help you finish up today."</strong><br><br>
-                            <strong>"My team has already filled me in on everything, so this should only take a few minutes."</strong><br><br>
-                            <strong>"Sound good?"</strong>
-                        </p>
-                    </div>
-                    
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>You Say</th>
-                                    <th>They Feel</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="table-highlight">"Finish up today"</td>
-                                    <td>We're almost done</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-highlight">"Already filled me in"</td>
-                                    <td>I don't have to repeat myself</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-highlight">"Only a few minutes"</td>
-                                    <td>This won't take long</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <div class="accordion-header-content">
-                                    <span class="accordion-icon">🔥</span>
-                                    <span class="accordion-title">Alternative Opening: Warm Style</span>
-                                </div>
-                                <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M6 9l6 6 6-6"/>
-                                </svg>
-                            </div>
-                            <div class="accordion-body">
-                                <div class="script-block">
-                                    <p class="script-text">
-                                        <strong>"Hey [First Name], this is [Your Name]. I'm the specialist who's going to wrap this up for you today. I've got all your information right here—just need to verify a few things and we'll get you all set. Ready?"</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <div class="accordion-header-content">
-                                    <span class="accordion-icon">💼</span>
-                                    <span class="accordion-title">Alternative Opening: Professional Style</span>
-                                </div>
-                                <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M6 9l6 6 6-6"/>
-                                </svg>
-                            </div>
-                            <div class="accordion-body">
-                                <div class="script-block">
-                                    <p class="script-text">
-                                        <strong>"[First Name], this is [Your Name] with [Company]. I'm the licensed agent handling your application. My team sent over your details—let me confirm a few things and we'll have you all set."</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <div class="accordion-header-content">
-                                    <span class="accordion-icon">⚡</span>
-                                    <span class="accordion-title">Alternative Opening: Efficient Style</span>
-                                </div>
-                                <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M6 9l6 6 6-6"/>
-                                </svg>
-                            </div>
-                            <div class="accordion-body">
-                                <div class="script-block">
-                                    <p class="script-text">
-                                        <strong>"Hi [First Name], [Your Name] here. I'm going to finalize your coverage today. I see you're going with the $[Amount] plan at $[Premium] a month—let me verify your information and we'll get this done."</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Phase 2: Confirm Details -->
-                <section class="section" id="phase-2">
-                    <div class="section-header">
-                        <div class="section-number">2</div>
-                        <div class="section-info">
-                            <h2 class="section-title">Confirm the Details</h2>
-                            <p class="section-subtitle">Verify what the customer agreed to—don't re-sell.</p>
-                        </div>
-                        <span class="section-time">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            60 seconds
-                        </span>
-                    </div>
-                    
-                    <div class="script-block">
-                        <div class="script-header">
-                            <div class="script-label">
-                                <span class="script-label-icon">✓</span>
-                                Coverage Confirmation
-                            </div>
-                            <button class="copy-btn" onclick="copyScript(this)">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                        <p class="script-text">
-                            <strong>"Alright, so I've got you down for $[Coverage Amount] of coverage with [Carrier Name], coming out to $[Premium] a month."</strong><br><br>
-                            <strong>"That's what you discussed with my team, correct?"</strong><br><br>
-                            <em>[Wait for yes]</em>
-                        </p>
-                    </div>
-                    
-                    <div class="script-block">
-                        <div class="script-header">
-                            <div class="script-label">
-                                <span class="script-label-icon">👤</span>
-                                Beneficiary Confirmation
-                            </div>
-                            <button class="copy-btn" onclick="copyScript(this)">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                        <p class="script-text">
-                            <strong>"And I have [Beneficiary Name] listed as your beneficiary—that's your [relationship], right?"</strong><br><br>
-                            <em>[Wait for yes]</em>
-                        </p>
-                    </div>
-                    
-                    <div class="alert alert-info">
-                        <div class="alert-icon">ℹ</div>
-                        <div class="alert-content">
-                            <div class="alert-title">If Something Doesn't Match</div>
-                            <p class="alert-text"><strong>"Okay, no problem—let me update that. So it should be [correct information], right?"</strong><br>Fix it and move on. Don't make it a big deal.</p>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Phase 3: Application -->
-                <section class="section" id="phase-3">
-                    <div class="section-header">
-                        <div class="section-number">3</div>
-                        <div class="section-info">
-                            <h2 class="section-title">The Application</h2>
-                            <p class="section-subtitle">Collect required information efficiently.</p>
-                        </div>
-                        <span class="section-time">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            3-5 minutes
-                        </span>
-                    </div>
-                    
-                    <div class="script-block">
-                        <div class="script-header">
-                            <div class="script-label">
-                                <span class="script-label-icon">📝</span>
-                                Transition Statement
-                            </div>
-                            <button class="copy-btn" onclick="copyScript(this)">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                        <p class="script-text">
-                            <strong>"Perfect. Now I just need to walk you through the application—this is the official part where we get everything documented for [Carrier Name]."</strong><br><br>
-                            <strong>"Most of this I already have, so I'll just verify as we go."</strong>
-                        </p>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">
-                                <span class="card-icon">📋</span>
-                                Personal Information Questions
-                            </h4>
-                        </div>
-                        <div class="table-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Information</th>
-                                        <th>Script</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Full legal name</td>
-                                        <td>"Let me verify your full legal name—that's [Name], correct?"</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Middle name/initial</td>
-                                        <td>"Middle name or initial?"</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Date of birth</td>
-                                        <td>"And your date of birth is [DOB]?"</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Address</td>
-                                        <td>"Your address is [Address]—is that current?"</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phone number</td>
-                                        <td>"Best phone number to reach you?"</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>"Email address if you have one?"</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">
-                                <span class="card-icon">❤️</span>
-                                Health Questions (Required)
-                            </h4>
                         </div>
                         
-                        <div class="alert alert-warning mb-lg">
-                            <div class="alert-icon">!</div>
+                        <div class="alert danger" style="max-width: 500px; margin: 24px auto 0;">
+                            <div class="alert-icon">✕</div>
                             <div class="alert-content">
-                                <div class="alert-title">Important</div>
-                                <p class="alert-text">You MUST ask health questions directly—even if the call center already asked them. This is required for compliance.</p>
+                                <div class="alert-title">The #1 Way Agents Kill These Deals</div>
+                                <div class="alert-text"><strong>Starting over.</strong> The customer just spent 15-20 minutes with your call center. If you say "So tell me, what made you interested in final expense today?"—the deal is DEAD.</div>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- SCREEN 1: THE PICKUP -->
+                    <div class="screen" data-screen="1">
+                        <h2 class="section-title">Phase 1: The Pickup</h2>
                         
-                        <div class="script-block">
+                        <div class="script-card">
                             <div class="script-header">
-                                <div class="script-label">
-                                    <span class="script-label-icon">🏥</span>
-                                    Health Questions Transition
-                                </div>
-                                <button class="copy-btn" onclick="copyScript(this)">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <span class="script-title">💬 Standard Opening Script</span>
+                                <button class="copy-btn" onclick="copyText(this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2"/>
                                         <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
                                     </svg>
@@ -2002,741 +378,442 @@
                                 </button>
                             </div>
                             <p class="script-text">
-                                <strong>"Now I need to go through the health questions with you—these are required by [Carrier] for the application."</strong><br><br>
-                                <strong>"Some of these you may have already answered, but I need to document your responses officially."</strong>
+                                <strong>"Hi, [First Name]?"</strong><br><br>
+                                <em>[Wait for yes]</em><br><br>
+                                <strong>"Hey [First Name], this is [Your Name]—I'm the licensed agent that's going to help you finish up today."</strong><br><br>
+                                <strong>"My team has already filled me in on everything, so this should only take a few minutes."</strong><br><br>
+                                <strong>"Sound good?"</strong>
                             </p>
                         </div>
                         
-                        <div class="checklist">
-                            <div class="checklist-item">
-                                <div class="checklist-checkbox"></div>
-                                <div class="checklist-content">
-                                    <div class="checklist-title">"Have you used any form of tobacco or nicotine products in the past 12 months?"</div>
-                                </div>
-                            </div>
-                            <div class="checklist-item">
-                                <div class="checklist-checkbox"></div>
-                                <div class="checklist-content">
-                                    <div class="checklist-title">"Are you currently confined to a hospital, nursing home, or assisted living facility?"</div>
-                                </div>
-                            </div>
-                            <div class="checklist-item">
-                                <div class="checklist-checkbox"></div>
-                                <div class="checklist-content">
-                                    <div class="checklist-title">"In the past 2 years, have you been diagnosed with or treated for any form of cancer, heart disease, stroke, or kidney disease?"</div>
-                                </div>
-                            </div>
-                            <div class="checklist-item">
-                                <div class="checklist-checkbox"></div>
-                                <div class="checklist-content">
-                                    <div class="checklist-title">"Have you tested positive for or been diagnosed with HIV or AIDS?"</div>
-                                </div>
-                            </div>
-                            <div class="checklist-item">
-                                <div class="checklist-checkbox"></div>
-                                <div class="checklist-content">
-                                    <div class="checklist-title">"Are you currently taking any prescription medications?"</div>
-                                </div>
+                        <div class="alert info">
+                            <div class="alert-icon">💡</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Why This Works</div>
+                                <div class="alert-text">"Finish up today" → We're almost done. "Already filled me in" → No repeating. "Only a few minutes" → Quick process.</div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                
-                <!-- Phase 4: Payment Setup -->
-                <section class="section" id="phase-4">
-                    <div class="section-header">
-                        <div class="section-number">4</div>
-                        <div class="section-info">
-                            <h2 class="section-title">Payment Setup</h2>
-                            <p class="section-subtitle">Collect payment information accurately.</p>
-                        </div>
-                        <span class="section-time">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            60-90 seconds
-                        </span>
                     </div>
                     
-                    <div class="quick-ref-grid">
-                        <div class="quick-ref-card primary">
-                            <div class="quick-ref-title">For Bank Draft</div>
-                            <div class="quick-ref-content">
-                                <p><strong>1.</strong> Routing number (9-digit, bottom left of check)</p>
+                    <!-- SCREEN 2: CONFIRM DETAILS -->
+                    <div class="screen" data-screen="2">
+                        <h2 class="section-title">Phase 2: Confirm the Details</h2>
+                        
+                        <div class="script-card">
+                            <div class="script-header">
+                                <span class="script-title">✓ Coverage Confirmation</span>
+                                <button class="copy-btn" onclick="copyText(this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <p class="script-text">
+                                <strong>"Alright, so I've got you down for $[Coverage Amount] of coverage with [Carrier Name], coming out to $[Premium] a month."</strong><br><br>
+                                <strong>"That's what you discussed with my team, correct?"</strong><br><br>
+                                <em>[Wait for yes]</em>
+                            </p>
+                        </div>
+                        
+                        <div class="script-card">
+                            <div class="script-header">
+                                <span class="script-title">👤 Beneficiary Confirmation</span>
+                                <button class="copy-btn" onclick="copyText(this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <p class="script-text">
+                                <strong>"And I have [Beneficiary Name] listed as your beneficiary—that's your [relationship], right?"</strong><br><br>
+                                <em>[Wait for yes]</em>
+                            </p>
+                        </div>
+                        
+                        <div class="alert info">
+                            <div class="alert-icon">ℹ</div>
+                            <div class="alert-content">
+                                <div class="alert-title">If Something Doesn't Match</div>
+                                <div class="alert-text"><strong>"Okay, no problem—let me update that. So it should be [correct information], right?"</strong> Fix it and move on. Don't make it a big deal.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SCREEN 3: APPLICATION -->
+                    <div class="screen" data-screen="3">
+                        <h2 class="section-title">Phase 3: The Application</h2>
+                        
+                        <div class="script-card">
+                            <div class="script-header">
+                                <span class="script-title">📝 Transition Statement</span>
+                                <button class="copy-btn" onclick="copyText(this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <p class="script-text">
+                                <strong>"Perfect. Now I just need to walk you through the application—this is the official part where we get everything documented for [Carrier Name]."</strong><br><br>
+                                <strong>"Most of this I already have, so I'll just verify as we go."</strong>
+                            </p>
+                        </div>
+                        
+                        <div class="alert warning">
+                            <div class="alert-icon">!</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Important</div>
+                                <div class="alert-text">You MUST ask health questions directly—even if the call center already asked them. This is required for compliance.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="script-card">
+                            <div class="script-header">
+                                <span class="script-title">🏥 Health Questions</span>
+                            </div>
+                            <div class="checklist" id="healthChecklist">
+                                <label class="check-item">
+                                    <input type="checkbox" onchange="updateChecklist()">
+                                    <span>"Have you used any form of tobacco or nicotine products in the past 12 months?"</span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" onchange="updateChecklist()">
+                                    <span>"Are you currently confined to a hospital, nursing home, or assisted living facility?"</span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" onchange="updateChecklist()">
+                                    <span>"In the past 2 years, have you been diagnosed with or treated for any form of cancer, heart disease, stroke, or kidney disease?"</span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" onchange="updateChecklist()">
+                                    <span>"Have you tested positive for or been diagnosed with HIV or AIDS?"</span>
+                                </label>
+                                <label class="check-item">
+                                    <input type="checkbox" onchange="updateChecklist()">
+                                    <span>"Are you currently taking any prescription medications?"</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SCREEN 4: PAYMENT -->
+                    <div class="screen" data-screen="4">
+                        <h2 class="section-title">Phase 4: Payment Setup</h2>
+                        
+                        <div class="ref-grid">
+                            <div class="ref-card">
+                                <div class="ref-card-title">For Bank Draft</div>
+                                <p><strong>1.</strong> Routing number (9-digit)</p>
                                 <p><strong>2.</strong> Account number</p>
                                 <p><strong>3.</strong> Name on the account</p>
                             </div>
-                        </div>
-                        <div class="quick-ref-card warning">
-                            <div class="quick-ref-title">For Credit/Debit Card</div>
-                            <div class="quick-ref-content">
+                            <div class="ref-card warning">
+                                <div class="ref-card-title">For Credit/Debit Card</div>
                                 <p><strong>1.</strong> Card number</p>
                                 <p><strong>2.</strong> Expiration date</p>
                                 <p><strong>3.</strong> Security code (back)</p>
                                 <p><strong>4.</strong> Billing zip code</p>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="script-block">
-                        <div class="script-header">
-                            <div class="script-label">
-                                <span class="script-label-icon">📅</span>
-                                Payment Date Script
-                            </div>
-                            <button class="copy-btn" onclick="copyScript(this)">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
                         
-                        <div class="alert alert-info mb-md">
-                            <div class="alert-icon">ℹ</div>
-                            <div class="alert-content">
-                                <p class="alert-text"><em>If the customer is over 65 years old, we want to bill Social Security.</em></p>
+                        <div class="script-card">
+                            <div class="script-header">
+                                <span class="script-title">📅 Payment Date Script</span>
+                                <button class="copy-btn" onclick="copyText(this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                                    </svg>
+                                    Copy
+                                </button>
                             </div>
-                        </div>
-
-                        <p class="script-text">
-                            <strong>"What day of the month does your social security check arrive?"</strong><br><br>
-                            <em>[Wait for answer]</em><br><br>
-                            <strong>"Okay. Your first payment will come when this application is approved and your future monthly payments will come out on the [date check arrives], okay?"</strong>
-                        </p>
-
-                        <div class="alert alert-warning mt-lg">
-                            <div class="alert-icon">⚡</div>
-                            <div class="alert-content">
-                                <div class="alert-title">If pushback to first payment coming out now</div>
-                                <p class="alert-text">Tell them we can process first payment on their selected day but the coverage won't be effective until the payment comes.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Phase 5: Disclosures -->
-                <section class="section" id="phase-5">
-                    <div class="section-header">
-                        <div class="section-number">5</div>
-                        <div class="section-info">
-                            <h2 class="section-title">Disclosures & Authorization</h2>
-                            <p class="section-subtitle">Stay compliant and get clear authorization.</p>
-                        </div>
-                        <span class="section-time">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            60-90 seconds
-                        </span>
-                    </div>
-                    
-                    <div class="alert alert-danger">
-                        <div class="alert-icon">⚠</div>
-                        <div class="alert-content">
-                            <div class="alert-title">Critical Compliance Requirement</div>
-                            <p class="alert-text">Read disclosures <strong>EXACTLY</strong> as required by your carrier. Do not paraphrase. Do not skip.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="script-block">
-                        <div class="script-header">
-                            <div class="script-label">
-                                <span class="script-label-icon">📜</span>
-                                Authorization Script
-                            </div>
-                            <button class="copy-btn" onclick="copyScript(this)">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                        <p class="script-text">
-                            <strong>"Perfect. Now to complete this application, I need your verbal authorization."</strong><br><br>
-                            <strong>"By saying 'Yes, I agree,' you are authorizing [Carrier Name] to issue this policy, confirming that all the information you've provided is accurate to the best of your knowledge, and authorizing the payment of $[Premium] per month from your [bank account/card]."</strong><br><br>
-                            <strong>"[First Name], do you agree?"</strong><br><br>
-                            <em>[Wait for clear "Yes" or "I agree"]</em><br><br>
-                            <strong>"Thank you. For our records, I'm noting that [Full Name] provided verbal authorization on [Today's Date] at [Time]."</strong>
-                        </p>
-                    </div>
-                </section>
-                
-                <!-- Phase 6: Wrap-Up -->
-                <section class="section" id="phase-6">
-                    <div class="section-header">
-                        <div class="section-number">6</div>
-                        <div class="section-info">
-                            <h2 class="section-title">Wrap-Up</h2>
-                            <p class="section-subtitle">Confirm, set expectations, end on a positive note.</p>
-                        </div>
-                        <span class="section-time">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            30-60 seconds
-                        </span>
-                    </div>
-                    
-                    <div class="script-block">
-                        <div class="script-header">
-                            <div class="script-label">
-                                <span class="script-label-icon">🎉</span>
-                                Closing Script
-                            </div>
-                            <button class="copy-btn" onclick="copyScript(this)">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                        <p class="script-text">
-                            <strong>"Alright [First Name], you are all set!"</strong><br><br>
-                            <strong>"Let me confirm what you're getting:</strong><br><br>
-                            <strong>• $[Coverage Amount] of permanent whole life coverage with [Carrier Name]<br>
-                            • Your beneficiary is [Beneficiary Name]<br>
-                            • Your monthly payment is $[Premium], coming out on the [Date] of each month"</strong><br><br>
-                            <strong>"Does everything sound correct?"</strong><br><br>
-                            <em>[Wait for confirmation]</em><br><br>
-                            <strong>"You'll receive your policy documents in the mail within [7-10 business days]. When you get them, look them over. If you have any questions, my contact information will be included."</strong><br><br>
-                            <strong>"[First Name], congratulations. You just did something really important for [Beneficiary Name]. A lot of people talk about doing this but never follow through. You actually got it done."</strong><br><br>
-                            <strong>"Is there anything else I can help you with today?"</strong><br><br>
-                            <strong>"Alright, you take care of yourself. And thank you for choosing [Carrier/Company]—we appreciate your trust. Have a great day."</strong>
-                        </p>
-                    </div>
-                </section>
-                
-                <!-- Handling Issues -->
-                <section class="section" id="handling-issues">
-                    <div class="section-header">
-                        <div class="section-number">⚡</div>
-                        <div class="section-info">
-                            <h2 class="section-title">Handling Common Issues</h2>
-                            <p class="section-subtitle">Scripts for when things don't go smoothly.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <div class="accordion-header-content">
-                                    <span class="accordion-icon">😕</span>
-                                    <span class="accordion-title">Customer Gets Confused</span>
-                                </div>
-                                <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M6 9l6 6 6-6"/>
-                                </svg>
-                            </div>
-                            <div class="accordion-body">
-                                <p class="mb-md"><strong>Signs:</strong> "Wait, what?" • "I thought we already did this" • Sounds frustrated</p>
-                                <div class="script-block">
-                                    <p class="script-text">
-                                        <strong>"I know you've already been through a lot of questions—I apologize if this feels repetitive."</strong><br><br>
-                                        <strong>"The reason I'm asking again is because this is the official application that goes to [Carrier]. I need to document everything directly."</strong><br><br>
-                                        <strong>"We're almost done—just a few more things."</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <div class="accordion-header-content">
-                                    <span class="accordion-icon">🤔</span>
-                                    <span class="accordion-title">Customer Has Second Thoughts</span>
-                                </div>
-                                <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M6 9l6 6 6-6"/>
-                                </svg>
-                            </div>
-                            <div class="accordion-body">
-                                <div class="script-block">
-                                    <p class="script-text">
-                                        <strong>"I understand, [First Name]. This is an important decision."</strong><br><br>
-                                        <strong>"Let me ask you—what specifically is giving you pause? Is it the coverage amount, the monthly payment, or something else?"</strong><br><br>
-                                        <em>[Address their specific concern]</em>
-                                    </p>
-                                </div>
-                                <div class="alert alert-info mt-lg">
-                                    <div class="alert-icon">💡</div>
-                                    <div class="alert-content">
-                                        <div class="alert-title">If They Need to "Think About It"</div>
-                                        <p class="alert-text">"That's fair. Here's what I'd suggest—let's complete the application today while you're approved and locked in. You've got 30 days to review everything. If you change your mind, you cancel, get your money back, and nothing happens."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <div class="accordion-header-content">
-                                    <span class="accordion-icon">🔒</span>
-                                    <span class="accordion-title">Customer Questions Legitimacy</span>
-                                </div>
-                                <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M6 9l6 6 6-6"/>
-                                </svg>
-                            </div>
-                            <div class="accordion-body">
-                                <div class="script-block">
-                                    <p class="script-text">
-                                        <strong>"That's a fair question—you should always be careful."</strong><br><br>
-                                        <strong>"[Carrier Name] has been around for [X years]. They're A-rated, licensed in all 50 states, and have paid out billions in claims."</strong><br><br>
-                                        <strong>"After you receive your policy, you can call them directly at [Carrier Phone] to verify everything."</strong><br><br>
-                                        <strong>"And remember—you have a 30-day free look period. If anything doesn't feel right when you get the documents, you can cancel for a full refund."</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <div class="accordion-header-content">
-                                    <span class="accordion-icon">💰</span>
-                                    <span class="accordion-title">Customer Wants to Change Coverage</span>
-                                </div>
-                                <svg class="accordion-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M6 9l6 6 6-6"/>
-                                </svg>
-                            </div>
-                            <div class="accordion-body">
-                                <div class="script-block">
-                                    <p class="script-text">
-                                        <strong>"Absolutely, we can adjust that. Let me see what the premium would be for $[New Amount]..."</strong><br><br>
-                                        <em>[Calculate new premium]</em><br><br>
-                                        <strong>"Okay, so $[New Amount] would be $[New Premium] per month. Would you like to go with that instead?"</strong>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Compliance Section -->
-                <section class="section" id="compliance">
-                    <div class="section-header">
-                        <div class="section-number">⚠</div>
-                        <div class="section-info">
-                            <h2 class="section-title">Compliance Checklist</h2>
-                            <p class="section-subtitle">Protect yourself and the customer.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="quick-ref-grid">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">
-                                    <span class="card-icon text-success">✓</span>
-                                    You MUST Do
-                                </h4>
-                            </div>
-                            <div class="checklist">
-                                <div class="checklist-item" onclick="toggleCheck(this)">
-                                    <div class="checklist-checkbox">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                            <path d="M20 6L9 17l-5-5"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Read all required disclosures exactly as written</div>
-                                    </div>
-                                </div>
-                                <div class="checklist-item" onclick="toggleCheck(this)">
-                                    <div class="checklist-checkbox">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                            <path d="M20 6L9 17l-5-5"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Document verbal authorization with date and time</div>
-                                    </div>
-                                </div>
-                                <div class="checklist-item" onclick="toggleCheck(this)">
-                                    <div class="checklist-checkbox">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                            <path d="M20 6L9 17l-5-5"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Verify identity (SSN, DOB)</div>
-                                    </div>
-                                </div>
-                                <div class="checklist-item" onclick="toggleCheck(this)">
-                                    <div class="checklist-checkbox">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                            <path d="M20 6L9 17l-5-5"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Ask ALL health questions directly</div>
-                                    </div>
-                                </div>
-                                <div class="checklist-item" onclick="toggleCheck(this)">
-                                    <div class="checklist-checkbox">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                            <path d="M20 6L9 17l-5-5"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Explain the free look period</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">
-                                    <span class="card-icon text-danger">✕</span>
-                                    You MUST NOT Do
-                                </h4>
-                            </div>
-                            <div class="checklist">
-                                <div class="checklist-item">
-                                    <div class="checklist-checkbox" style="background: var(--color-danger); border-color: var(--color-danger);">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                            <path d="M18 6L6 18M6 6l12 12"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Skip health questions because "call center asked them"</div>
-                                    </div>
-                                </div>
-                                <div class="checklist-item">
-                                    <div class="checklist-checkbox" style="background: var(--color-danger); border-color: var(--color-danger);">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                            <path d="M18 6L6 18M6 6l12 12"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Promise specific payout timing</div>
-                                    </div>
-                                </div>
-                                <div class="checklist-item">
-                                    <div class="checklist-checkbox" style="background: var(--color-danger); border-color: var(--color-danger);">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                            <path d="M18 6L6 18M6 6l12 12"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Say "guaranteed" without proper qualification</div>
-                                    </div>
-                                </div>
-                                <div class="checklist-item">
-                                    <div class="checklist-checkbox" style="background: var(--color-danger); border-color: var(--color-danger);">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                            <path d="M18 6L6 18M6 6l12 12"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Continue if customer clearly wants to stop</div>
-                                    </div>
-                                </div>
-                                <div class="checklist-item">
-                                    <div class="checklist-checkbox" style="background: var(--color-danger); border-color: var(--color-danger);">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                            <path d="M18 6L6 18M6 6l12 12"/>
-                                        </svg>
-                                    </div>
-                                    <div class="checklist-content">
-                                        <div class="checklist-title">Misrepresent coverage or benefits</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-warning">
-                        <div class="alert-icon">🚨</div>
-                        <div class="alert-content">
-                            <div class="alert-title">Red Flags—Stop and Verify</div>
-                            <p class="alert-text">
-                                <strong>Customer sounds confused</strong> → Slow down, explain, confirm understanding<br>
-                                <strong>Family member set this up</strong> → Verify THEY want it and have decision authority<br>
-                                <strong>Can't answer basic questions</strong> → May not be appropriate sale—escalate<br>
-                                <strong>Mentions Power of Attorney</strong> → STOP—verify decision authority<br>
-                                <strong>In nursing home/facility</strong> → Underwriting issue—may disqualify
+                            <p class="script-text">
+                                <strong>"What day of the month does your social security check arrive?"</strong><br><br>
+                                <em>[Wait for answer]</em><br><br>
+                                <strong>"Okay. Your first payment will come when this application is approved and your future monthly payments will come out on the [date check arrives], okay?"</strong>
                             </p>
                         </div>
                     </div>
-                </section>
-                
-                <!-- Quick Reference Section -->
-                <section class="section" id="quick-reference">
-                    <div class="section-header">
-                        <div class="section-number">📋</div>
-                        <div class="section-info">
-                            <h2 class="section-title">Quick Reference</h2>
-                            <p class="section-subtitle">Scripts and phrases at a glance.</p>
+                    
+                    <!-- SCREEN 5: DISCLOSURES -->
+                    <div class="screen" data-screen="5">
+                        <h2 class="section-title">Phase 5: Disclosures & Authorization</h2>
+                        
+                        <div class="alert danger">
+                            <div class="alert-icon">⚠</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Critical Compliance Requirement</div>
+                                <div class="alert-text">Read disclosures <strong>EXACTLY</strong> as required by your carrier. Do not paraphrase. Do not skip.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="script-card">
+                            <div class="script-header">
+                                <span class="script-title">📜 Authorization Script</span>
+                                <button class="copy-btn" onclick="copyText(this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <p class="script-text">
+                                <strong>"Perfect. Now to complete this application, I need your verbal authorization."</strong><br><br>
+                                <strong>"By saying 'Yes, I agree,' you are authorizing [Carrier Name] to issue this policy, confirming that all the information you've provided is accurate to the best of your knowledge, and authorizing the payment of $[Premium] per month from your [bank account/card]."</strong><br><br>
+                                <strong>"[First Name], do you agree?"</strong><br><br>
+                                <em>[Wait for clear "Yes" or "I agree"]</em><br><br>
+                                <strong>"Thank you. For our records, I'm noting that [Full Name] provided verbal authorization on [Today's Date] at [Time]."</strong>
+                            </p>
                         </div>
                     </div>
                     
-                    <div class="time-indicator">
-                        <div class="time-block">
-                            <div class="time-value">60-90</div>
-                            <div class="time-label">Pickup + Confirm (sec)</div>
-                        </div>
-                        <div class="time-divider"></div>
-                        <div class="time-block">
-                            <div class="time-value">3-5</div>
-                            <div class="time-label">Application (min)</div>
-                        </div>
-                        <div class="time-divider"></div>
-                        <div class="time-block">
-                            <div class="time-value">60-90</div>
-                            <div class="time-label">Disclosure (sec)</div>
-                        </div>
-                        <div class="time-divider"></div>
-                        <div class="time-block">
-                            <div class="time-value">30-60</div>
-                            <div class="time-label">Wrap-Up (sec)</div>
+                    <!-- SCREEN 6: WRAP-UP -->
+                    <div class="screen" data-screen="6">
+                        <h2 class="section-title">Phase 6: Wrap-Up</h2>
+                        
+                        <div class="script-card success">
+                            <div class="script-header">
+                                <span class="script-title">🎉 Closing Script</span>
+                                <button class="copy-btn" onclick="copyText(this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <p class="script-text">
+                                <strong>"Alright [First Name], you are all set!"</strong><br><br>
+                                <strong>"Let me confirm what you're getting:</strong><br><br>
+                                <strong>• $[Coverage Amount] of permanent whole life coverage with [Carrier Name]<br>
+                                • Your beneficiary is [Beneficiary Name]<br>
+                                • Your monthly payment is $[Premium], coming out on the [Date] of each month"</strong><br><br>
+                                <strong>"Does everything sound correct?"</strong><br><br>
+                                <em>[Wait for confirmation]</em><br><br>
+                                <strong>"You'll receive your policy documents in the mail within [7-10 business days]. When you get them, look them over. If you have any questions, my contact information will be included."</strong><br><br>
+                                <strong>"[First Name], congratulations. You just did something really important for [Beneficiary Name]. A lot of people talk about doing this but never follow through. You actually got it done."</strong>
+                            </p>
                         </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">
-                                <span class="card-icon">💬</span>
-                                Momentum Phrases
-                            </h4>
+                    <!-- SCREEN 7: COMPLIANCE -->
+                    <div class="screen" data-screen="7">
+                        <h2 class="section-title">Compliance Checklist</h2>
+                        
+                        <div class="ref-grid">
+                            <div class="script-card success">
+                                <div class="script-header">
+                                    <span class="script-title" style="color: var(--emerald-700);">✓ You MUST Do</span>
+                                </div>
+                                <div class="checklist">
+                                    <label class="check-item"><input type="checkbox"><span>Read all required disclosures exactly as written</span></label>
+                                    <label class="check-item"><input type="checkbox"><span>Document verbal authorization with date and time</span></label>
+                                    <label class="check-item"><input type="checkbox"><span>Verify identity (SSN, DOB)</span></label>
+                                    <label class="check-item"><input type="checkbox"><span>Ask ALL health questions directly</span></label>
+                                    <label class="check-item"><input type="checkbox"><span>Explain the free look period</span></label>
+                                </div>
+                            </div>
+                            <div class="script-card critical">
+                                <div class="script-header">
+                                    <span class="script-title">✕ You MUST NOT Do</span>
+                                </div>
+                                <div class="checklist">
+                                    <label class="check-item"><input type="checkbox" disabled><span>Skip health questions because "call center asked them"</span></label>
+                                    <label class="check-item"><input type="checkbox" disabled><span>Promise specific payout timing</span></label>
+                                    <label class="check-item"><input type="checkbox" disabled><span>Say "guaranteed" without proper qualification</span></label>
+                                    <label class="check-item"><input type="checkbox" disabled><span>Continue if customer clearly wants to stop</span></label>
+                                    <label class="check-item"><input type="checkbox" disabled><span>Misrepresent coverage or benefits</span></label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="table-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>✓ Use These</th>
-                                        <th>✕ Instead of These</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-success">"Let me verify..."</td>
-                                        <td class="text-danger">"Let me ask you again..."</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-success">"I just need to confirm..."</td>
-                                        <td class="text-danger">"I need to go over everything..."</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-success">"We're almost done..."</td>
-                                        <td class="text-danger">"We have a lot to cover..."</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-success">"Perfect, moving on..."</td>
-                                        <td class="text-danger">"Okay, so..."</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        
+                        <div class="key-point">
+                            <div class="key-point-label">⭐ The Golden Rule</div>
+                            <p class="key-point-text">The application call isn't where you win the sale—<br>it's where you don't lose it.</p>
                         </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">
-                                <span class="card-icon">❤️</span>
-                                Reassurance Phrases
-                            </h4>
-                        </div>
-                        <div class="quick-ref-grid">
-                            <div class="quick-ref-card success">
-                                <div class="quick-ref-content">"You're doing the right thing."</div>
-                            </div>
-                            <div class="quick-ref-card success">
-                                <div class="quick-ref-content">"[Beneficiary] is going to appreciate this."</div>
-                            </div>
-                            <div class="quick-ref-card success">
-                                <div class="quick-ref-content">"Most people never get this done. You're ahead of the game."</div>
-                            </div>
-                            <div class="quick-ref-card success">
-                                <div class="quick-ref-content">"Almost there—just a couple more questions."</div>
-                            </div>
+                        
+                        <div style="text-align: center; padding: 16px; color: var(--emerald-600); font-weight: 700;">
+                            🎉 APPLICATION GUIDE COMPLETE
                         </div>
                     </div>
-                    
-                    <div class="key-point">
-                        <div class="key-point-title">The Golden Rule</div>
-                        <p class="key-point-text">The application call isn't where you win the sale—<br>it's where you don't lose it.</p>
-                    </div>
-                </section>
-                
-                <!-- Footer -->
-                <footer class="footer">
-                    <p class="footer-quote">"The sale is already made. Your job is to finish it—not lose it."</p>
-                    <p class="footer-meta">
-                        Final Expense Application Completion Guide • Version 1.0 • December 2024<br>
-                        For Internal Agent Use Only
-                    </p>
-                </footer>
-                
+                </div>
             </div>
+            
+            <footer class="main-footer">
+                <button class="nav-btn secondary" id="backBtn" onclick="prevStep()" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back
+                </button>
+                <button class="nav-btn primary" id="nextBtn" onclick="nextStep()">
+                    Next Step
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </footer>
         </main>
+        
+        <!-- OBJECTION OVERLAY -->
+        <div class="overlay" id="overlay">
+            <div class="overlay-header">
+                <h3>Objection Handler</h3>
+                <button class="close-btn" onclick="closeOverlay()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="overlay-content">
+                <div class="objection-label">
+                    <div class="objection-label-title">They Said:</div>
+                    <div class="objection-label-text" id="objectionLabel"></div>
+                </div>
+                <div class="response-box">
+                    <div class="response-box-header">
+                        <div class="response-box-title">You Say:</div>
+                        <button class="copy-btn" style="color: var(--slate-400);" onclick="copyResponse()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p id="objectionResponse"></p>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script>
-        // ============================================
-        // THEME TOGGLE
-        // ============================================
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+        const PHASES = [
+            { id: 'setup', title: 'Getting Started' },
+            { id: 'pickup', title: 'The Pickup' },
+            { id: 'confirm', title: 'Confirm Details' },
+            { id: 'application', title: 'Application' },
+            { id: 'payment', title: 'Payment Setup' },
+            { id: 'disclosures', title: 'Disclosures' },
+            { id: 'wrapup', title: 'Wrap-Up' },
+            { id: 'compliance', title: 'Compliance' }
+        ];
+        
+        const OBJECTIONS = [
+            { label: "Customer Gets Confused", content: "\"I know you've already been through a lot of questions—I apologize if this feels repetitive. The reason I'm asking again is because this is the official application that goes to [Carrier]. I need to document everything directly. We're almost done—just a few more things.\"" },
+            { label: "Second Thoughts", content: "\"I understand, [First Name]. This is an important decision. Let me ask you—what specifically is giving you pause? Is it the coverage amount, the monthly payment, or something else?\" [Address their specific concern]" },
+            { label: "Questions Legitimacy", content: "\"That's a fair question—you should always be careful. [Carrier Name] has been around for [X years]. They're A-rated, licensed in all 50 states, and have paid out billions in claims. After you receive your policy, you can call them directly to verify everything. And remember—you have a 30-day free look period.\"" },
+            { label: "Wants to Change Coverage", content: "\"Absolutely, we can adjust that. Let me see what the premium would be for $[New Amount]... Okay, so $[New Amount] would be $[New Premium] per month. Would you like to go with that instead?\"" }
+        ];
+        
+        let currentStep = 0;
+        
+        function init() {
+            renderPhases();
+            updateUI();
         }
         
-        // Load saved theme
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        })();
-        
-        // ============================================
-        // SIDEBAR TOGGLE (Mobile)
-        // ============================================
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
+        function renderPhases() {
+            const list = document.getElementById('phaseList');
+            list.innerHTML = PHASES.map((phase, i) => `
+                <div class="phase-item ${i === currentStep ? 'active' : ''} ${i < currentStep ? 'completed' : ''}" onclick="goToStep(${i})">
+                    ${i < currentStep ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>' : `<span style="font-size:10px;font-weight:700;color:inherit;">${i}</span>`}
+                    ${phase.title}
+                </div>
+            `).join('');
         }
         
-        // Close sidebar when clicking outside
-        document.addEventListener('click', function(e) {
-            const sidebar = document.getElementById('sidebar');
-            const menuToggle = document.querySelector('.menu-toggle');
-            if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-                sidebar.classList.remove('open');
+        function updateUI() {
+            // Update screens
+            document.querySelectorAll('.screen').forEach((s, i) => {
+                s.classList.toggle('active', i === currentStep);
+            });
+            
+            // Update header
+            document.getElementById('currentPhaseTitle').textContent = PHASES[currentStep].title;
+            document.getElementById('stepCounter').textContent = `Step ${currentStep + 1} of ${PHASES.length}`;
+            document.getElementById('progressFill').style.width = `${((currentStep + 1) / PHASES.length) * 100}%`;
+            
+            // Update buttons
+            document.getElementById('backBtn').disabled = currentStep === 0;
+            const nextBtn = document.getElementById('nextBtn');
+            if (currentStep === PHASES.length - 1) {
+                nextBtn.className = 'nav-btn success';
+                nextBtn.innerHTML = 'Finish & Start New <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg>';
+            } else {
+                nextBtn.className = 'nav-btn primary';
+                nextBtn.innerHTML = 'Next Step <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
             }
-        });
+            
+            renderPhases();
+        }
         
-        // ============================================
-        // ACCORDION
-        // ============================================
-        function toggleAccordion(header) {
-            const item = header.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Close all other accordions in the same container
-            const container = item.parentElement;
-            container.querySelectorAll('.accordion-item').forEach(i => {
-                i.classList.remove('active');
-            });
-            
-            // Toggle current
-            if (!isActive) {
-                item.classList.add('active');
+        function nextStep() {
+            if (currentStep < PHASES.length - 1) {
+                currentStep++;
+                updateUI();
+            } else {
+                resetApp();
             }
         }
         
-        // ============================================
-        // CHECKLIST
-        // ============================================
-        function toggleCheck(item) {
-            item.classList.toggle('checked');
-            updateProgress();
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                updateUI();
+            }
         }
         
-        // ============================================
-        // COPY SCRIPT
-        // ============================================
-        function copyScript(btn) {
-            const scriptBlock = btn.closest('.script-block');
-            const scriptText = scriptBlock.querySelector('.script-text');
-            const text = scriptText.innerText;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                btn.classList.add('copied');
-                btn.innerHTML = `
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5"/>
-                    </svg>
-                    Copied!
-                `;
-                
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    btn.innerHTML = `
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="9" y="9" width="13" height="13" rx="2"/>
-                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                        </svg>
-                        Copy
-                    `;
-                }, 2000);
-            });
+        function goToStep(step) {
+            currentStep = step;
+            updateUI();
         }
         
-        // ============================================
-        // PROGRESS TRACKING
-        // ============================================
-        function updateProgress() {
-            const allCheckboxes = document.querySelectorAll('.checklist-item');
-            const checkedBoxes = document.querySelectorAll('.checklist-item.checked');
-            const progress = allCheckboxes.length > 0 ? 
-                Math.round((checkedBoxes.length / allCheckboxes.length) * 100) : 0;
-            
-            document.getElementById('progress-percent').textContent = progress + '%';
-            document.getElementById('progress-fill').style.width = progress + '%';
+        function resetApp() {
+            currentStep = 0;
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            updateUI();
         }
         
-        // ============================================
-        // SCROLL SPY FOR NAVIGATION
-        // ============================================
-        function updateActiveNav() {
-            const sections = document.querySelectorAll('.section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (window.scrollY >= sectionTop - 150) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + currentSection) {
-                    link.classList.add('active');
-                }
-            });
+        function copyText(btn) {
+            const card = btn.closest('.script-card');
+            const text = card.querySelector('.script-text').innerText;
+            navigator.clipboard.writeText(text);
+            btn.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
+                btn.classList.remove('copied');
+            }, 2000);
         }
         
-        window.addEventListener('scroll', updateActiveNav);
+        function showObjection(idx) {
+            const obj = OBJECTIONS[idx];
+            document.getElementById('objectionLabel').textContent = obj.label;
+            document.getElementById('objectionResponse').textContent = obj.content;
+            document.getElementById('overlay').classList.add('active');
+        }
         
-        // ============================================
-        // SMOOTH SCROLL FOR NAV LINKS
-        // ============================================
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-                
-                // Close mobile sidebar
-                document.getElementById('sidebar').classList.remove('open');
-            });
-        });
+        function closeOverlay() {
+            document.getElementById('overlay').classList.remove('active');
+        }
         
-        // ============================================
-        // INITIAL SETUP
-        // ============================================
-        document.addEventListener('DOMContentLoaded', function() {
-            updateProgress();
-            updateActiveNav();
-        });
+        function copyResponse() {
+            const text = document.getElementById('objectionResponse').textContent;
+            navigator.clipboard.writeText(text);
+        }
+        
+        function updateChecklist() {
+            const checks = document.querySelectorAll('#healthChecklist input');
+            checks.forEach(cb => cb.closest('.check-item').classList.toggle('checked', cb.checked));
+        }
+        
+        init();
     </script>
 </body>
 </html>
