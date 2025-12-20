@@ -8,7 +8,10 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input: {
-        live: resolve(__dirname, 'live.html')
+        main: resolve(__dirname, 'index.html'),
+        live: resolve(__dirname, 'live.html'),
+        framework: resolve(__dirname, 'framework.html'),
+        preclosed: resolve(__dirname, 'preclosed.html')
       }
     }
   },

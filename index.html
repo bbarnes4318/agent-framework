@@ -1,481 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AmerBen Agent Scripts | Professional Sales Playbooks</title>
-    
-    <meta name="description" content="Access AmerBen's professional agent scripts and sales playbooks for final expense insurance.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
-    
+
+    <meta
+      name="description"
+      content="Access AmerBen's professional agent scripts and sales playbooks for final expense insurance."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>"
+    />
+
     <style>
-        :root {
-            --color-primary: #0f172a;
-            --color-secondary: #2563eb;
-            --color-secondary-dark: #1e40af;
-            --color-secondary-light: #60a5fa;
-            --color-accent: #f59e0b;
-            --color-accent-dark: #d97706;
-            --color-success: #10b981;
-            
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #f1f5f9;
-            
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-tertiary: #64748b;
-            
-            --border-light: #e2e8f0;
-            --border-medium: #cbd5e1;
-            
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --shadow-glow-blue: 0 0 40px -10px rgba(37, 99, 235, 0.5);
-            --shadow-glow-amber: 0 0 40px -10px rgba(245, 158, 11, 0.5);
-            
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-            
-            --header-height: 70px;
-            --font-sans: 'Inter', -apple-system, sans-serif;
+      :root {
+        --color-primary: #0f172a;
+        --color-secondary: #2563eb;
+        --color-secondary-dark: #1e40af;
+        --color-secondary-light: #60a5fa;
+        --color-accent: #f59e0b;
+        --color-accent-dark: #d97706;
+        --color-success: #10b981;
+
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --bg-tertiary: #f1f5f9;
+
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --text-tertiary: #64748b;
+
+        --border-light: #e2e8f0;
+        --border-medium: #cbd5e1;
+
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        --shadow-glow-blue: 0 0 40px -10px rgba(37, 99, 235, 0.5);
+        --shadow-glow-amber: 0 0 40px -10px rgba(245, 158, 11, 0.5);
+
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1rem;
+
+        --header-height: 70px;
+        --font-sans: "Inter", -apple-system, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        color: var(--text-primary);
+        background: var(--bg-secondary);
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* HEADER */
+      .header {
+        height: var(--header-height);
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid var(--border-light);
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+        backdrop-filter: blur(12px);
+        flex-shrink: 0;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo-image {
+        height: 48px;
+        width: auto;
+      }
+
+      .logo-divider {
+        width: 1px;
+        height: 32px;
+        background: var(--border-medium);
+      }
+
+      .logo-text {
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--text-primary);
+      }
+
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.8rem;
+        background: linear-gradient(135deg, var(--color-success), #059669);
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 600;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .pulse-dot {
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
         }
-        
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        html, body {
-            height: 100%;
-            overflow: hidden;
+        50% {
+          opacity: 0.5;
         }
-        
-        body {
-            font-family: var(--font-sans);
-            color: var(--text-primary);
-            background: var(--bg-secondary);
-            -webkit-font-smoothing: antialiased;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* HEADER */
+      }
+
+      /* MAIN */
+      .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 2rem 0;
+        overflow: hidden;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        padding: 1rem 0 1.5rem;
+      }
+
+      .hero-title {
+        font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+        background: linear-gradient(
+          135deg,
+          var(--text-primary) 0%,
+          var(--color-secondary) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      /* SCRIPT CARDS */
+      .scripts-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        flex: 1;
+      }
+
+      .script-card {
+        position: relative;
+        background: var(--bg-primary);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        transition: all 0.25s ease;
+        border: 1px solid var(--border-light);
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .script-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .script-card.primary:hover {
+        box-shadow: var(--shadow-glow-blue);
+      }
+      .script-card.secondary:hover {
+        box-shadow: var(--shadow-glow-amber);
+      }
+
+      .card-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+      }
+
+      .script-card.primary .card-gradient {
+        background: linear-gradient(
+          90deg,
+          var(--color-secondary),
+          var(--color-secondary-light)
+        );
+      }
+
+      .script-card.secondary .card-gradient {
+        background: linear-gradient(
+          90deg,
+          var(--color-accent),
+          var(--color-accent-dark)
+        );
+      }
+
+      .card-content {
+        padding: 1.75rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .card-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .script-card.primary .card-icon {
+        background: linear-gradient(
+          135deg,
+          var(--color-secondary),
+          var(--color-secondary-dark)
+        );
+        box-shadow: 0 4px 12px -4px rgba(37, 99, 235, 0.5);
+      }
+
+      .script-card.secondary .card-icon {
+        background: linear-gradient(
+          135deg,
+          var(--color-accent),
+          var(--color-accent-dark)
+        );
+        box-shadow: 0 4px 12px -4px rgba(245, 158, 11, 0.5);
+      }
+
+      .card-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+      }
+
+      .card-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-tertiary);
+      }
+
+      .script-card.primary .card-label {
+        color: var(--color-secondary);
+      }
+      .script-card.secondary .card-label {
+        color: var(--color-accent-dark);
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.2;
+      }
+
+      .card-description {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+        flex: 1;
+      }
+
+      .card-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .feature-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.35rem 0.6rem;
+        background: var(--bg-tertiary);
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+
+      .feature-tag svg {
+        width: 12px;
+        height: 12px;
+        color: var(--color-success);
+      }
+
+      .card-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.5rem;
+        border-radius: var(--radius-md);
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.15s ease;
+      }
+
+      .script-card.primary .card-cta {
+        background: linear-gradient(
+          135deg,
+          var(--color-secondary),
+          var(--color-secondary-dark)
+        );
+        color: white;
+      }
+
+      .script-card.secondary .card-cta {
+        background: linear-gradient(
+          135deg,
+          var(--color-accent),
+          var(--color-accent-dark)
+        );
+        color: white;
+      }
+
+      .card-cta svg {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.15s ease;
+      }
+
+      .script-card:hover .card-cta svg {
+        transform: translateX(3px);
+      }
+
+      /* FOOTER */
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1.25rem 2rem;
+        color: var(--text-tertiary);
+        font-size: 0.8rem;
+        border-top: 1px solid var(--border-light);
+        background: var(--bg-primary);
+        flex-shrink: 0;
+      }
+
+      .footer-logo {
+        height: 24px;
+        width: auto;
+        opacity: 0.6;
+      }
+
+      .footer-divider {
+        width: 1px;
+        height: 16px;
+        background: var(--border-medium);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
         .header {
-            height: var(--header-height);
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-            backdrop-filter: blur(12px);
-            flex-shrink: 0;
+          padding: 0 1rem;
         }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo-image {
-            height: 48px;
-            width: auto;
-        }
-        
-        .logo-divider {
-            width: 1px;
-            height: 32px;
-            background: var(--border-medium);
-        }
-        
+        .logo-divider,
         .logo-text {
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--text-primary);
+          display: none;
         }
-        
-        .header-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.4rem 0.8rem;
-            background: linear-gradient(135deg, var(--color-success), #059669);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 600;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .pulse-dot {
-            width: 6px;
-            height: 6px;
-            background: white;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        /* MAIN */
         .main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 1.5rem 2rem 0;
-            overflow: hidden;
+          padding: 1rem 1rem 0;
         }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            width: 100%;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding: 1rem 0 1.5rem;
-        }
-        
-        .hero-title {
-            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--color-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            max-width: 520px;
-            margin: 0 auto;
-        }
-        
-        /* SCRIPT CARDS */
         .scripts-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            flex: 1;
+          grid-template-columns: 1fr;
+          gap: 1rem;
         }
-        
-        .script-card {
-            position: relative;
-            background: var(--bg-primary);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            transition: all 0.25s ease;
-            border: 1px solid var(--border-light);
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
+        .hero {
+          padding: 0.5rem 0 1rem;
         }
-        
-        .script-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+        .hero-title {
+          font-size: 1.5rem;
         }
-        
-        .script-card.primary:hover { box-shadow: var(--shadow-glow-blue); }
-        .script-card.secondary:hover { box-shadow: var(--shadow-glow-amber); }
-        
-        .card-gradient {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-        }
-        
-        .script-card.primary .card-gradient {
-            background: linear-gradient(90deg, var(--color-secondary), var(--color-secondary-light));
-        }
-        
-        .script-card.secondary .card-gradient {
-            background: linear-gradient(90deg, var(--color-accent), var(--color-accent-dark));
-        }
-        
         .card-content {
-            padding: 1.75rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+          padding: 1.25rem;
         }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .card-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .script-card.primary .card-icon {
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
-            box-shadow: 0 4px 12px -4px rgba(37, 99, 235, 0.5);
-        }
-        
-        .script-card.secondary .card-icon {
-            background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-            box-shadow: 0 4px 12px -4px rgba(245, 158, 11, 0.5);
-        }
-        
-        .card-meta { display: flex; flex-direction: column; gap: 0.125rem; }
-        
-        .card-label {
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-tertiary);
-        }
-        
-        .script-card.primary .card-label { color: var(--color-secondary); }
-        .script-card.secondary .card-label { color: var(--color-accent-dark); }
-        
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.2;
-        }
-        
-        .card-description {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-            flex: 1;
-        }
-        
-        .card-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.25rem;
-        }
-        
-        .feature-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            padding: 0.35rem 0.6rem;
-            background: var(--bg-tertiary);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-        
-        .feature-tag svg {
-            width: 12px;
-            height: 12px;
-            color: var(--color-success);
-        }
-        
-        .card-cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.5rem;
-            border-radius: var(--radius-md);
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.15s ease;
-        }
-        
-        .script-card.primary .card-cta {
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
-            color: white;
-        }
-        
-        .script-card.secondary .card-cta {
-            background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-            color: white;
-        }
-        
-        .card-cta svg {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.15s ease;
-        }
-        
-        .script-card:hover .card-cta svg {
-            transform: translateX(3px);
-        }
-        
-        /* FOOTER */
         .footer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 1.25rem 2rem;
-            color: var(--text-tertiary);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border-light);
-            background: var(--bg-primary);
-            flex-shrink: 0;
+          padding: 1rem;
         }
-        
-        .footer-logo {
-            height: 24px;
-            width: auto;
-            opacity: 0.6;
-        }
-        
-        .footer-divider {
-            width: 1px;
-            height: 16px;
-            background: var(--border-medium);
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .header { padding: 0 1rem; }
-            .logo-divider, .logo-text { display: none; }
-            .main { padding: 1rem 1rem 0; }
-            .scripts-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .hero { padding: 0.5rem 0 1rem; }
-            .hero-title { font-size: 1.5rem; }
-            .card-content { padding: 1.25rem; }
-            .footer { padding: 1rem; }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <img src="amerben.png" alt="AmerBen Insurance" class="logo-image">
-                <div class="logo-divider"></div>
-                <span class="logo-text">Agent Scripts</span>
-            </div>
-            <div class="header-badge">
-                <span class="pulse-dot"></span>
-                <span>Licensed Agent Portal</span>
-            </div>
+      <div class="header-content">
+        <div class="logo">
+          <img src="/amerben.png" alt="AmerBen Insurance" class="logo-image" />
+          <div class="logo-divider"></div>
+          <span class="logo-text">Agent Scripts</span>
         </div>
+        <div class="header-badge">
+          <span class="pulse-dot"></span>
+          <span>Licensed Agent Portal</span>
+        </div>
+      </div>
     </header>
 
     <main class="main">
-        <div class="container">
-            <section class="hero">
-                <h1 class="hero-title">Master Your Sales With Expert Scripts</h1>
-                <p class="hero-subtitle">Professional playbooks designed to maximize conversions and build lasting client relationships.</p>
-            </section>
+      <div class="container">
+        <section class="hero">
+          <h1 class="hero-title">Master Your Sales With Expert Scripts</h1>
+          <p class="hero-subtitle">
+            Professional playbooks designed to maximize conversions and build
+            lasting client relationships.
+          </p>
+        </section>
 
-            <div class="scripts-grid">
-                <a href="framework.html" class="script-card primary">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-icon">📞</div>
-                            <div class="card-meta">
-                                <span class="card-label">Outbound Model</span>
-                                <h2 class="card-title">Live Transfer Script</h2>
-                            </div>
-                        </div>
-                        <p class="card-description">The complete 7-phase authority script for handling live transfer calls. Build trust and close deals from the first hello.</p>
-                        <div class="card-features">
-                            <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                7 Phases
-                            </span>
-                            <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Objection Handling
-                            </span>
-                            <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Goldilocks Close
-                            </span>
-                        </div>
-                        <div class="card-cta">
-                            <span>Open Script</span>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="preclosed.html" class="script-card secondary">
-                    <div class="card-gradient"></div>
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-icon">📋</div>
-                            <div class="card-meta">
-                                <span class="card-label">Application Guide</span>
-                                <h2 class="card-title">Pre-Closed Script</h2>
-                            </div>
-                        </div>
-                        <p class="card-description">Your comprehensive guide for completing applications with pre-qualified leads. Navigate health questions and secure the signature.</p>
-                        <div class="card-features">
-                            <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Application Flow
-                            </span>
-                            <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Health Questions
-                            </span>
-                            <span class="feature-tag">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                Carrier Selection
-                            </span>
-                        </div>
-                        <div class="card-cta">
-                            <span>Open Script</span>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </div>
-                    </div>
-                </a>
+        <div class="scripts-grid">
+          <a href="framework.html" class="script-card primary">
+            <div class="card-gradient"></div>
+            <div class="card-content">
+              <div class="card-header">
+                <div class="card-icon">📞</div>
+                <div class="card-meta">
+                  <span class="card-label">Outbound Model</span>
+                  <h2 class="card-title">Live Transfer Script</h2>
+                </div>
+              </div>
+              <p class="card-description">
+                The complete 7-phase authority script for handling live transfer
+                calls. Build trust and close deals from the first hello.
+              </p>
+              <div class="card-features">
+                <span class="feature-tag">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  7 Phases
+                </span>
+                <span class="feature-tag">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  Objection Handling
+                </span>
+                <span class="feature-tag">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  Goldilocks Close
+                </span>
+              </div>
+              <div class="card-cta">
+                <span>Open Script</span>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path>
+                </svg>
+              </div>
             </div>
+          </a>
+
+          <a href="preclosed.html" class="script-card secondary">
+            <div class="card-gradient"></div>
+            <div class="card-content">
+              <div class="card-header">
+                <div class="card-icon">📋</div>
+                <div class="card-meta">
+                  <span class="card-label">Application Guide</span>
+                  <h2 class="card-title">Pre-Closed Script</h2>
+                </div>
+              </div>
+              <p class="card-description">
+                Your comprehensive guide for completing applications with
+                pre-qualified leads. Navigate health questions and secure the
+                signature.
+              </p>
+              <div class="card-features">
+                <span class="feature-tag">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  Application Flow
+                </span>
+                <span class="feature-tag">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  Health Questions
+                </span>
+                <span class="feature-tag">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  Carrier Selection
+                </span>
+              </div>
+              <div class="card-cta">
+                <span>Open Script</span>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </a>
         </div>
+      </div>
     </main>
 
     <footer class="footer">
-        <img src="amerben.png" alt="AmerBen" class="footer-logo">
-        <div class="footer-divider"></div>
-        <span>AmerBen Insurance • Professional Agent Training Resources</span>
+      <img src="/amerben.png" alt="AmerBen" class="footer-logo" />
+      <div class="footer-divider"></div>
+      <span>AmerBen Insurance • Professional Agent Training Resources</span>
     </footer>
-</body>
+  </body>
 </html>
