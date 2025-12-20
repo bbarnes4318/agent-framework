@@ -113,8 +113,10 @@
         .progress-fill { height: 100%; background: var(--blue-600); transition: width 0.5s; }
         
         .content-area {
-            flex: 1; overflow: hidden; padding: 12px;
+            flex: 1; overflow-y: auto; padding: 16px;
+            scrollbar-width: none; -ms-overflow-style: none;
         }
+        .content-area::-webkit-scrollbar { display: none; }
         .content-wrapper { max-width: 800px; margin: 0 auto; }
         
         .main-footer {
@@ -173,36 +175,33 @@
         .copy-btn.copied { color: var(--emerald-600); }
         .copy-btn svg { width: 12px; height: 12px; }
         
-        .script-text { font-size: 13px; line-height: 1.5; color: var(--slate-800); font-weight: 500; }
-        .script-text em { color: var(--slate-400); font-style: italic; font-size: 11px; }
+        .script-text { font-size: 15px; line-height: 1.6; color: var(--slate-800); font-weight: 500; }
+        .script-text em { color: var(--slate-400); font-style: italic; font-size: 13px; }
         .script-text strong { color: var(--slate-900); }
         
-        .section-title { font-size: 16px; font-weight: 700; color: var(--slate-800); margin-bottom: 8px; }
-        
-        .script-card { padding: 10px; margin-bottom: 8px; }
-        .script-card.hidden { display: none; }
+        .section-title { font-size: 18px; font-weight: 700; color: var(--slate-800); margin-bottom: 12px; }
         
         /* CHECKLIST */
-        .checklist { display: flex; flex-direction: column; gap: 4px; }
+        .checklist { display: flex; flex-direction: column; gap: 6px; }
         .check-item {
-            display: flex; align-items: flex-start; gap: 8px;
-            padding: 6px 8px; background: var(--slate-50); border: 1px solid var(--slate-200);
-            border-radius: 6px; cursor: pointer; transition: all 0.15s;
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 10px; background: var(--slate-50); border: 1px solid var(--slate-200);
+            border-radius: 8px; cursor: pointer; transition: all 0.15s;
         }
         .check-item:hover { border-color: var(--blue-300); }
         .check-item.checked { background: var(--blue-50); border-color: var(--blue-200); }
-        .check-item input { width: 14px; height: 14px; margin-top: 1px; accent-color: var(--blue-600); }
-        .check-item span { font-size: 11px; font-weight: 500; color: var(--slate-800); line-height: 1.3; }
+        .check-item input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--blue-600); }
+        .check-item span { font-size: 14px; font-weight: 500; color: var(--slate-800); line-height: 1.4; }
         
         /* ALERT */
         .alert {
-            display: flex; gap: 8px; padding: 8px;
-            border-radius: 6px; margin-bottom: 8px;
+            display: flex; gap: 12px; padding: 12px;
+            border-radius: 8px; margin-bottom: 12px;
         }
         .alert-icon {
-            width: 18px; height: 18px; border-radius: 4px;
+            width: 20px; height: 20px; border-radius: 4px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 10px; flex-shrink: 0;
+            font-size: 12px; flex-shrink: 0;
         }
         .alert.danger { background: var(--red-50); border: 1px solid var(--red-100); }
         .alert.danger .alert-icon { background: var(--red-500); color: white; }
@@ -214,21 +213,21 @@
         .alert.warning { background: var(--amber-50); border: 1px solid var(--amber-100); }
         .alert.warning .alert-icon { background: var(--amber-500); color: white; }
         .alert-content { flex: 1; }
-        .alert-title { font-size: 11px; font-weight: 700; margin-bottom: 1px; }
-        .alert-text { font-size: 11px; color: var(--slate-600); line-height: 1.4; }
+        .alert-title { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+        .alert-text { font-size: 13px; color: var(--slate-600); line-height: 1.5; }
         
         /* SETUP SCREEN */
         .setup-screen {
             display: flex; flex-direction: column; align-items: center;
-            justify-content: center; min-height: 40vh; text-align: center;
+            justify-content: center; min-height: 60vh; text-align: center;
         }
-        .setup-screen h1 { font-size: 20px; font-weight: 700; color: var(--slate-800); margin-bottom: 6px; }
-        .setup-screen p { font-size: 12px; color: var(--slate-500); margin-bottom: 16px; max-width: 400px; }
+        .setup-screen h1 { font-size: 24px; font-weight: 700; color: var(--slate-800); margin-bottom: 8px; }
+        .setup-screen p { font-size: 14px; color: var(--slate-500); margin-bottom: 24px; max-width: 400px; }
         
         .start-btn {
-            display: flex; align-items: center; gap: 6px;
-            padding: 12px 24px; background: var(--blue-600); color: white;
-            border: none; border-radius: 10px; font-size: 14px; font-weight: 700;
+            display: flex; align-items: center; gap: 8px;
+            padding: 16px 32px; background: var(--blue-600); color: white;
+            border: none; border-radius: 12px; font-size: 16px; font-weight: 700;
             cursor: pointer; transition: all 0.2s;
             box-shadow: 0 4px 12px rgba(37,99,235,0.3);
         }
@@ -236,24 +235,24 @@
         
         .key-point {
             background: linear-gradient(135deg, var(--slate-100), var(--slate-50));
-            border: 1px solid var(--slate-200); border-radius: 8px;
-            padding: 10px; text-align: center; margin: 8px 0;
+            border: 1px solid var(--slate-200); border-radius: 12px;
+            padding: 20px; text-align: center; margin: 16px 0;
         }
         .key-point-label {
-            font-size: 9px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.5px; color: var(--amber-600); margin-bottom: 4px;
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; color: var(--amber-600); margin-bottom: 8px;
         }
-        .key-point-text { font-size: 13px; font-weight: 600; color: var(--slate-800); line-height: 1.4; }
+        .key-point-text { font-size: 16px; font-weight: 600; color: var(--slate-800); line-height: 1.5; }
         
         /* QUICK REF GRID */
-        .ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 8px; }
+        .ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 12px; }
         .ref-card {
             background: white; border: 1px solid var(--slate-200);
-            border-radius: 6px; padding: 8px; border-top: 3px solid var(--blue-500);
+            border-radius: 8px; padding: 12px; border-top: 3px solid var(--blue-500);
         }
         .ref-card.warning { border-top-color: var(--amber-500); }
-        .ref-card-title { font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--slate-500); margin-bottom: 4px; }
-        .ref-card p { font-size: 11px; color: var(--slate-600); margin-bottom: 2px; }
+        .ref-card-title { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--slate-500); margin-bottom: 8px; }
+        .ref-card p { font-size: 13px; color: var(--slate-600); margin-bottom: 4px; }
         
         /* OBJECTION OVERLAY */
         .overlay {
@@ -375,13 +374,13 @@
                         </div>
                     </div>
                     
-                    <!-- SCREEN 1: THE OPENING -->
+                    <!-- SCREEN 1: THE PICKUP -->
                     <div class="screen" data-screen="1">
-                        <h2 class="section-title">The Opening</h2>
+                        <h2 class="section-title">Phase 1: The Pickup</h2>
                         
-                        <div class="script-card" id="blindScript">
+                        <div class="script-card">
                             <div class="script-header">
-                                <span class="script-title">📞 Blind Transfer Script</span>
+                                <span class="script-title">💬 Standard Opening Script</span>
                                 <button class="copy-btn" onclick="copyText(this)">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2"/>
@@ -391,42 +390,30 @@
                                 </button>
                             </div>
                             <p class="script-text">
-                                <em>(Fronter connects call...)</em><br><br>
-                                <strong>"Hi, this is [Your Name]. Whom do I have the pleasure of speaking with?"</strong><br><br>
-                                <em>[WAIT FOR NAME. Do not ask to spell it.]</em><br><br>
-                                <strong>"Pleasure to meet you, [Name]. I appreciate you holding. The previous agent just transferred you to me because I'm the local licensed specialist for [State]. They mentioned you're [Age] and living in [City], right?"</strong><br><br>
-                                <strong>"Okay, great. Now [Name], I know you didn't wake up this morning expecting to hear from me—we called you. But since I have you on the line, my job is pretty simple — I'll ask you a few quick questions, show you exactly what you qualify for, and then you decide if it makes sense. Fair enough?"</strong>
+                                <strong>"Hi, [First Name]?"</strong><br><br>
+                                <em>[Wait for yes]</em><br><br>
+                                <strong>"Hey [First Name], this is [Your Name]—I'm the licensed agent that's going to help you finish up today."</strong><br><br>
+                                <strong>"My team has already filled me in on everything, so this should only take a few minutes."</strong><br><br>
+                                <strong>"Sound good?"</strong>
                             </p>
                         </div>
                         
-                        <div class="script-card" id="warmScript">
-                            <div class="script-header">
-                                <span class="script-title">👤 Warm Transfer Script</span>
-                                <button class="copy-btn" onclick="copyText(this)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                    </svg>
-                                    Copy
-                                </button>
+                        <div class="alert info">
+                            <div class="alert-icon">💡</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Why This Works</div>
+                                <div class="alert-text">"Finish up today" → We're almost done. "Already filled me in" → No repeating. "Only a few minutes" → Quick process.</div>
                             </div>
-                            <p class="script-text">
-                                <em>(To Fronter):</em><br><br>
-                                <strong>"Thanks [Fronter Name], I see the file here. I'll take it from here."</strong><br><br>
-                                <em>(To Prospect):</em><br><br>
-                                <strong>"Hi [Prospect Name], this is [Your Name], the licensed specialist for [State]. I appreciate your patience while they got us connected. [Fronter Name] got me up to speed—they mentioned you're [Age] and looking to make sure the family isn't stuck with a bill, is that right?"</strong><br><br>
-                                <strong>"Perfect. Like I said, I'm the specialist for the area. My job is simple—I'll ask a few quick questions to see if you qualify for the state-regulated benefits. If you do, I'll show you the numbers. If not, I'll tell you that too. Fair enough?"</strong>
-                            </p>
                         </div>
                     </div>
                     
-                    <!-- SCREEN 2: DISCOVERY -->
+                    <!-- SCREEN 2: CONFIRM DETAILS -->
                     <div class="screen" data-screen="2">
-                        <h2 class="section-title">Discovery</h2>
+                        <h2 class="section-title">Phase 2: Confirm the Details</h2>
                         
                         <div class="script-card">
                             <div class="script-header">
-                                <span class="script-title">🎯 Motivation Check</span>
+                                <span class="script-title">✓ Coverage Confirmation</span>
                                 <button class="copy-btn" onclick="copyText(this)">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2"/>
@@ -436,15 +423,15 @@
                                 </button>
                             </div>
                             <p class="script-text">
-                                <strong>"Great. So [Name], when you were speaking with the other agent, you mentioned you wanted to make sure your family isn't stuck dealing with any final expenses when that time comes. Is that still the main thing on your mind, or is there something else driving this for you?"</strong><br><br>
-                                <em>(Listen to response)</em><br><br>
-                                <strong>"I appreciate you sharing that. You know, a lot of the folks I talk to—they're not worried about themselves. They've lived their life. What keeps them up at night is the thought of their kids or grandkids having to scramble to come up with $10,000 or $15,000 just to lay them to rest properly. Does that resonate with you at all?"</strong>
+                                <strong>"Alright, so I've got you down for $[Coverage Amount] of coverage with [Carrier Name], coming out to $[Premium] a month."</strong><br><br>
+                                <strong>"That's what you discussed with my team, correct?"</strong><br><br>
+                                <em>[Wait for yes]</em>
                             </p>
                         </div>
                         
                         <div class="script-card">
                             <div class="script-header">
-                                <span class="script-title">💔 Identify the Beneficiary</span>
+                                <span class="script-title">👤 Beneficiary Confirmation</span>
                                 <button class="copy-btn" onclick="copyText(this)">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2"/>
@@ -454,54 +441,27 @@
                                 </button>
                             </div>
                             <p class="script-text">
-                                <strong>"Perfect. So, If you didn't wake up tomorrow morning... who is the one person that would have to pick up the phone and handle everything?"</strong><br><br>
-                                <em>(Wait for name, e.g., 'Sarah')</em><br><br>
-                                <strong>"Sarah. Okay. Now, [Name], most people don't realize that funeral homes are businesses. They generally require the full $10,000 to $15,000 upfront before they will even open the doors."</strong>
+                                <strong>"And I have [Beneficiary Name] listed as your beneficiary—that's your [relationship], right?"</strong><br><br>
+                                <em>[Wait for yes]</em>
                             </p>
                         </div>
                         
-                        <div class="script-card critical">
-                            <div class="script-header">
-                                <span class="script-title">⚡ The Pain Question</span>
-                                <button class="copy-btn" onclick="copyText(this)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                    </svg>
-                                    Copy
-                                </button>
+                        <div class="alert info">
+                            <div class="alert-icon">ℹ</div>
+                            <div class="alert-content">
+                                <div class="alert-title">If Something Doesn't Match</div>
+                                <div class="alert-text"><strong>"Okay, no problem—let me update that. So it should be [correct information], right?"</strong> Fix it and move on. Don't make it a big deal.</div>
                             </div>
-                            <p class="script-text">
-                                <strong>"Knowing Sarah's financial situation... is she in a position to write a check that big on a Tuesday morning?"</strong><br><br>
-                                <em>(Wait for 'No')</em><br><br>
-                                <strong>"Ok. Sarah would have to come up with that money somehow. How would that affect her? Would she have to borrow it? Go into debt?"</strong>
-                            </p>
-                        </div>
-                        
-                        <div class="script-card success">
-                            <div class="script-header">
-                                <span class="script-title">🌉 The Bridge</span>
-                                <button class="copy-btn" onclick="copyText(this)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <p class="script-text">
-                                <strong>"That's exactly why we're talking. We want to make sure Sarah gets a check, not a bill. My goal is to set this up so she never has to worry about the money. Does that sound like what you want to accomplish?"</strong>
-                            </p>
                         </div>
                     </div>
                     
-                    <!-- SCREEN 3: HEALTH DISCOVERY -->
+                    <!-- SCREEN 3: APPLICATION -->
                     <div class="screen" data-screen="3">
-                        <h2 class="section-title">Health Discovery</h2>
+                        <h2 class="section-title">Phase 3: The Application</h2>
                         
                         <div class="script-card">
                             <div class="script-header">
-                                <span class="script-title">🏥 Health Questions Intro</span>
+                                <span class="script-title">📝 Transition Statement</span>
                                 <button class="copy-btn" onclick="copyText(this)">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2"/>
@@ -511,66 +471,71 @@
                                 </button>
                             </div>
                             <p class="script-text">
-                                <strong>"Alright, so here's what I want to do. I'm going to ask you a few quick health questions—nothing invasive—just so I can match you with the right program and make sure you're not overpaying. Sound good?"</strong>
+                                <strong>"Perfect. Now I just need to walk you through the application—this is the official part where we get everything documented for [Carrier Name]."</strong><br><br>
+                                <strong>"Most of this I already have, so I'll just verify as we go."</strong>
                             </p>
+                        </div>
+                        
+                        <div class="alert warning">
+                            <div class="alert-icon">!</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Important</div>
+                                <div class="alert-text">You MUST ask health questions directly—even if the call center already asked them. This is required for compliance.</div>
+                            </div>
                         </div>
                         
                         <div class="script-card">
                             <div class="script-header">
-                                <span class="script-title">✅ Health Checklist</span>
+                                <span class="script-title">🏥 Health Questions</span>
                             </div>
                             <div class="checklist" id="healthChecklist">
                                 <label class="check-item">
                                     <input type="checkbox" onchange="updateChecklist()">
-                                    <span>"Are you currently taking any medications for your heart—like blood thinners, or anything for cholesterol or blood pressure?"</span>
+                                    <span>"Have you used any form of tobacco or nicotine products in the past 12 months?"</span>
                                 </label>
                                 <label class="check-item">
                                     <input type="checkbox" onchange="updateChecklist()">
-                                    <span>"Any history of cancer, stroke, or diabetes?"</span>
+                                    <span>"Are you currently confined to a hospital, nursing home, or assisted living facility?"</span>
                                 </label>
                                 <label class="check-item">
                                     <input type="checkbox" onchange="updateChecklist()">
-                                    <span>"Have you been hospitalized for anything in the last two years?"</span>
+                                    <span>"In the past 2 years, have you been diagnosed with or treated for any form of cancer, heart disease, stroke, or kidney disease?"</span>
                                 </label>
                                 <label class="check-item">
                                     <input type="checkbox" onchange="updateChecklist()">
-                                    <span>"Do you use any oxygen equipment or have any issues with your lungs?"</span>
+                                    <span>"Have you tested positive for or been diagnosed with HIV or AIDS?"</span>
                                 </label>
                                 <label class="check-item">
                                     <input type="checkbox" onchange="updateChecklist()">
-                                    <span>"Do you smoke or use tobacco?"</span>
+                                    <span>"Are you currently taking any prescription medications?"</span>
                                 </label>
                             </div>
-                        </div>
-                        
-                        <div class="script-card success">
-                            <div class="script-header">
-                                <span class="script-title">✨ Value Stack</span>
-                                <button class="copy-btn" onclick="copyText(this)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <p class="script-text">
-                                <strong>"Good news, [Name]—based on what you've told me, you qualify for our [Plan Tier] program. Let me tell you exactly what that means for you."</strong><br><br>
-                                <strong>"So here's what you're looking at. This is a whole life insurance policy—not term, whole life. That means a few important things:"</strong><br><br>
-                                • <strong>First, your rate is locked in.</strong> The price I give you today will never go up. Even if your health changes.<br><br>
-                                • <strong>Second, the benefit is guaranteed.</strong> There's no fine print. When that time comes, Sarah receives the full amount, tax-free, usually within 24 to 48 hours.<br><br>
-                                • <strong>Third, this is 'Day One' coverage.</strong> That means the full benefit is available immediately. No waiting period.
-                            </p>
                         </div>
                     </div>
                     
-                    <!-- SCREEN 4: THE MANDATE -->
+                    <!-- SCREEN 4: PAYMENT -->
                     <div class="screen" data-screen="4">
-                        <h2 class="section-title">The Mandate</h2>
+                        <h2 class="section-title">Phase 4: Payment Setup</h2>
+                        
+                        <div class="ref-grid">
+                            <div class="ref-card">
+                                <div class="ref-card-title">For Bank Draft</div>
+                                <p><strong>1.</strong> Routing number (9-digit)</p>
+                                <p><strong>2.</strong> Account number</p>
+                                <p><strong>3.</strong> Name on the account</p>
+                            </div>
+                            <div class="ref-card warning">
+                                <div class="ref-card-title">For Credit/Debit Card</div>
+                                <p><strong>1.</strong> Card number</p>
+                                <p><strong>2.</strong> Expiration date</p>
+                                <p><strong>3.</strong> Security code (back)</p>
+                                <p><strong>4.</strong> Billing zip code</p>
+                            </div>
+                        </div>
                         
                         <div class="script-card">
                             <div class="script-header">
-                                <span class="script-title">📊 Budget Anchor</span>
+                                <span class="script-title">📅 Payment Date Script</span>
                                 <button class="copy-btn" onclick="copyText(this)">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2"/>
@@ -580,43 +545,28 @@
                                 </button>
                             </div>
                             <p class="script-text">
-                                <strong>"Okay. Based on what you've told me, I'm going to run a comparison across the top state-approved carriers. I'm filtering strictly for the 'Rate Lock' programs."</strong><br><br>
-                                <strong>"Most folks on a fixed income tell me they want to keep this between $50 and $80 a month."</strong>
+                                <strong>"What day of the month does your social security check arrive?"</strong><br><br>
+                                <em>[Wait for answer]</em><br><br>
+                                <strong>"Okay. Your first payment will come when this application is approved and your future monthly payments will come out on the [date check arrives], okay?"</strong>
                             </p>
                         </div>
-                        
-                        <div class="script-card warning">
-                            <div class="script-header">
-                                <span class="script-title">🎯 The Takeaway (CRUCIAL)</span>
-                                <button class="copy-btn" onclick="copyText(this)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <p class="script-text" style="font-size: 17px;">
-                                <strong>"If I find the right plan but it comes back at $150 a month, are you going to kick me off the phone?"</strong><br><br>
-                                <em>(Wait for laugh/agreement)</em><br><br>
-                                <strong>"I figured. Let me pull the numbers now. Hold on."</strong>
-                            </p>
-                        </div>
-                        
-                        <div style="background: var(--slate-900); color: var(--slate-200); padding: 12px; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            <div style="width: 12px; height: 12px; border: 2px solid var(--slate-500); border-top-color: white; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                            <span style="font-size: 12px; font-family: monospace; text-transform: uppercase; letter-spacing: 0.1em;">Silence for 10-15 seconds (Actually quote)</span>
-                        </div>
-                        <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
                     </div>
                     
                     <!-- SCREEN 5: DISCLOSURES -->
                     <div class="screen" data-screen="5">
-                        <h2 class="section-title">The Verdict</h2>
+                        <h2 class="section-title">Phase 5: Disclosures & Authorization</h2>
                         
-                        <div class="script-card success">
+                        <div class="alert danger">
+                            <div class="alert-icon">⚠</div>
+                            <div class="alert-content">
+                                <div class="alert-title">Critical Compliance Requirement</div>
+                                <div class="alert-text">Read disclosures <strong>EXACTLY</strong> as required by your carrier. Do not paraphrase. Do not skip.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="script-card">
                             <div class="script-header">
-                                <span class="script-title">⚖️ Verdict Delivery</span>
+                                <span class="script-title">📜 Authorization Script</span>
                                 <button class="copy-btn" onclick="copyText(this)">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2"/>
@@ -626,103 +576,82 @@
                                 </button>
                             </div>
                             <p class="script-text">
-                                <strong>"Alright, I've got good news for you. Based on everything you've shared, I found a program that fits exactly what you're looking for."</strong><br><br>
-                                <strong>"Looking at [Carrier Name], I can get you set up with $[Coverage Amount] in coverage at $[Premium] a month."</strong><br><br>
-                                <strong>"Now, tell me—is Sarah worth that kind of protection?"</strong><br><br>
-                                <em>[Wait for response]</em>
+                                <strong>"Perfect. Now to complete this application, I need your verbal authorization."</strong><br><br>
+                                <strong>"By saying 'Yes, I agree,' you are authorizing [Carrier Name] to issue this policy, confirming that all the information you've provided is accurate to the best of your knowledge, and authorizing the payment of $[Premium] per month from your [bank account/card]."</strong><br><br>
+                                <strong>"[First Name], do you agree?"</strong><br><br>
+                                <em>[Wait for clear "Yes" or "I agree"]</em><br><br>
+                                <strong>"Thank you. For our records, I'm noting that [Full Name] provided verbal authorization on [Today's Date] at [Time]."</strong>
                             </p>
                         </div>
                     </div>
                     
-                    <!-- SCREEN 6: PRESENTATION / GOLDILOCKS -->
+                    <!-- SCREEN 6: WRAP-UP -->
                     <div class="screen" data-screen="6">
-                        <h2 class="section-title">Presentation</h2>
+                        <h2 class="section-title">Phase 6: Wrap-Up</h2>
                         
-                        <div class="key-point">
-                            <div class="key-point-label">🎯 The Goldilocks Method</div>
-                            <p class="key-point-text">Present 3 options: High (anchor), Medium (target), Low (floor)</p>
+                        <div class="script-card success">
+                            <div class="script-header">
+                                <span class="script-title">🎉 Closing Script</span>
+                                <button class="copy-btn" onclick="copyText(this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                                    </svg>
+                                    Copy
+                                </button>
+                            </div>
+                            <p class="script-text">
+                                <strong>"Alright [First Name], you are all set!"</strong><br><br>
+                                <strong>"Let me confirm what you're getting:</strong><br><br>
+                                <strong>• $[Coverage Amount] of permanent whole life coverage with [Carrier Name]<br>
+                                • Your beneficiary is [Beneficiary Name]<br>
+                                • Your monthly payment is $[Premium], coming out on the [Date] of each month"</strong><br><br>
+                                <strong>"Does everything sound correct?"</strong><br><br>
+                                <em>[Wait for confirmation]</em><br><br>
+                                <strong>"You'll receive your policy documents in the mail within [7-10 business days]. When you get them, look them over. If you have any questions, my contact information will be included."</strong><br><br>
+                                <strong>"[First Name], congratulations. You just did something really important for [Beneficiary Name]. A lot of people talk about doing this but never follow through. You actually got it done."</strong>
+                            </p>
                         </div>
+                    </div>
+                    
+                    <!-- SCREEN 7: COMPLIANCE -->
+                    <div class="screen" data-screen="7">
+                        <h2 class="section-title">Compliance Checklist</h2>
                         
                         <div class="ref-grid">
-                            <div class="ref-card warning">
-                                <div class="ref-card-title">💎 Premium Option</div>
-                                <p><strong>$20,000</strong> coverage</p>
-                                <p>~$95/month</p>
-                                <p><em>"Covers everything plus extra"</em></p>
+                            <div class="script-card success">
+                                <div class="script-header">
+                                    <span class="script-title" style="color: var(--emerald-700);">✓ You MUST Do</span>
+                                </div>
+                                <div class="checklist">
+                                    <label class="check-item"><input type="checkbox"><span>Read all required disclosures exactly as written</span></label>
+                                    <label class="check-item"><input type="checkbox"><span>Document verbal authorization with date and time</span></label>
+                                    <label class="check-item"><input type="checkbox"><span>Verify identity (SSN, DOB)</span></label>
+                                    <label class="check-item"><input type="checkbox"><span>Ask ALL health questions directly</span></label>
+                                    <label class="check-item"><input type="checkbox"><span>Explain the free look period</span></label>
+                                </div>
                             </div>
-                            <div class="ref-card" style="border-top-color: var(--emerald-500);">
-                                <div class="ref-card-title">✅ Recommended</div>
-                                <p><strong>$15,000</strong> coverage</p>
-                                <p>~$70/month</p>
-                                <p><em>"Most popular - covers a proper burial"</em></p>
+                            <div class="script-card critical">
+                                <div class="script-header">
+                                    <span class="script-title">✕ You MUST NOT Do</span>
+                                </div>
+                                <div class="checklist">
+                                    <label class="check-item"><input type="checkbox" disabled><span>Skip health questions because "call center asked them"</span></label>
+                                    <label class="check-item"><input type="checkbox" disabled><span>Promise specific payout timing</span></label>
+                                    <label class="check-item"><input type="checkbox" disabled><span>Say "guaranteed" without proper qualification</span></label>
+                                    <label class="check-item"><input type="checkbox" disabled><span>Continue if customer clearly wants to stop</span></label>
+                                    <label class="check-item"><input type="checkbox" disabled><span>Misrepresent coverage or benefits</span></label>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="script-card">
-                            <div class="script-header">
-                                <span class="script-title">💬 Goldilocks Script</span>
-                                <button class="copy-btn" onclick="copyText(this)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <p class="script-text">
-                                <strong>"Okay [Name], I've got three options in front of me. Let me walk you through them quickly."</strong><br><br>
-                                <strong>"The first option gives you $20,000 in coverage. That would cover everything plus leave a little something extra for Sarah. That one comes out to about $95 a month."</strong><br><br>
-                                <strong>"The second—and this is what most of my clients choose—is $15,000. That's enough to handle the average funeral, casket, flowers, everything. That's about $70 a month."</strong><br><br>
-                                <strong>"And if the budget is tight, I have a $10,000 option at around $45 a month. It won't cover everything, but it takes the biggest burden off Sarah's shoulders."</strong><br><br>
-                                <strong>"Which one sounds like the right fit for you?"</strong>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- SCREEN 7: CLOSE -->
-                    <div class="screen" data-screen="7">
-                        <h2 class="section-title">The Close</h2>
-                        
-                        <div class="script-card">
-                            <div class="script-header">
-                                <span class="script-title">📝 Application Transition</span>
-                                <button class="copy-btn" onclick="copyText(this)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <p class="script-text">
-                                <strong>"Perfect. Let's go ahead and get this locked in for you today. I just need to gather a few pieces of information to finalize the application."</strong><br><br>
-                                <strong>"First, can you verify your date of birth for me?"</strong><br><br>
-                                <em>(Collect: Full name, DOB, SSN, Address, Payment info)</em>
-                            </p>
-                        </div>
-                        
-                        <div class="script-card success">
-                            <div class="script-header">
-                                <span class="script-title">🎉 Final Confirmation</span>
-                                <button class="copy-btn" onclick="copyText(this)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                    </svg>
-                                    Copy
-                                </button>
-                            </div>
-                            <p class="script-text">
-                                <strong>"Alright [Name], you're all set! Here's what you've got:"</strong><br><br>
-                                • $[Amount] of whole life coverage<br>
-                                • Beneficiary: [Sarah]<br>
-                                • Monthly payment: $[Premium] on the [Date] of each month<br><br>
-                                <strong>"You'll receive your policy in the mail within 7-10 business days. My information will be included. Congratulations—you just did something really important for Sarah."</strong>
-                            </p>
+                        <div class="key-point">
+                            <div class="key-point-label">⭐ The Golden Rule</div>
+                            <p class="key-point-text">The application call isn't where you win the sale—<br>it's where you don't lose it.</p>
                         </div>
                         
                         <div style="text-align: center; padding: 16px; color: var(--emerald-600); font-weight: 700;">
-                            🎉 CALL COMPLETE
+                            🎉 APPLICATION GUIDE COMPLETE
                         </div>
                     </div>
                 </div>
@@ -795,11 +724,6 @@
         ];
         
         let currentStep = 0;
-        let transferType = 'blind'; // 'blind' or 'warm'
-        
-        function setTransferType(type) {
-            transferType = type;
-        }
         
         function init() {
             renderPhases();
@@ -821,14 +745,6 @@
             document.querySelectorAll('.screen').forEach((s, i) => {
                 s.classList.toggle('active', i === currentStep);
             });
-            
-            // Show/hide transfer scripts based on selection
-            const blindScript = document.getElementById('blindScript');
-            const warmScript = document.getElementById('warmScript');
-            if (blindScript && warmScript) {
-                blindScript.classList.toggle('hidden', transferType !== 'blind');
-                warmScript.classList.toggle('hidden', transferType !== 'warm');
-            }
             
             // Update header
             document.getElementById('currentPhaseTitle').textContent = PHASES[currentStep].title;
